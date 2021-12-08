@@ -26,9 +26,14 @@ public class UsuarioServiceimpl implements UsuarioService{
     }
 
     @Override
-    public Usuario registrar(Usuario u) {
-        u.setPassword(passwordEncoder.encode(u.getPassword()));
-        return usuarioDAO.save(u);
+    public Usuario registrar(Usuario u) throws Exception{
+        if(usuarioDAO.findByEmail(u.getEmail())== null){
+            u.setPassword(passwordEncoder.encode(u.getPassword()));
+            return usuarioDAO.save(u);
+        }else{
+            throw new Exception("Este mail no esta disponible, pruebe otro");
+        }
+
     }
 
 	@Override

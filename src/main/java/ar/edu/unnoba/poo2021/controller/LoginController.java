@@ -9,6 +9,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class LoginController {
@@ -30,11 +31,16 @@ public class LoginController {
     }
 
     @PostMapping("/auth/registro")
-    public String registro(@ModelAttribute Usuario usuario, BindingResult result, Model model){
+    public String registro(@ModelAttribute Usuario usuario, BindingResult result, Model model, RedirectAttributes redirectAttributes){
         if(result.hasErrors()){
             return "redirect:/auth/registro";
         }else{
-            model.addAttribute("usuario", usuarioService.registrar(usuario));
+            try{
+                model.addAttribute("usuario", usuarioService.registrar(usuario));
+            }catch(Exception e){
+                redirectAttributes.addFlashAttribute("error",e.getMessage());
+                return "redirect:/auth/registro";
+            }
         }
         return "redirect:/auth/login";
     }
