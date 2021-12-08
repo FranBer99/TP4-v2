@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="layouts/base-layout::head"> </head>
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <span th:if="${session.usuario != null}">Bienvenid@<span class="font-italic" th:text="${session.usuario.nombre}"></span></span>
+            <form th:action="@{/logout}" method="post">
+                <button type="submit" class="btn btn-primary mt-3">Salir</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
