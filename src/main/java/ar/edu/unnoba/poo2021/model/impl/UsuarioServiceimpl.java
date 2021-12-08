@@ -7,11 +7,12 @@ import ar.edu.unnoba.poo2021.model.service.UsuarioService;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UsuarioServiceimpl implements UsuarioService  {
+public class UsuarioServiceimpl implements UsuarioService{
 
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
@@ -40,7 +41,7 @@ public class UsuarioServiceimpl implements UsuarioService  {
 		return usuarioDAO.findAll();
 	}
 
-	@Override
+    @Override
 	public Usuario update(Usuario usuario) {
         Usuario uDB = usuarioDAO.findById(usuario.getId()).get();
         uDB.setNombre(usuario.getNombre());
@@ -48,9 +49,13 @@ public class UsuarioServiceimpl implements UsuarioService  {
         return usuarioDAO.save(uDB);
     }
 
-	@Override
-	public void delete(Long id) {
-		usuarioDAO.deleteById(id);		
-	}
+    @Override
+    public void delete(User sessionUser,Long id) throws Exception{
+        Usuario usuario = usuarioDAO.findByEmail(sessionUser.getUsername());
+        if(usuario.getId().equals(id)){
+            throw new Exception("Un usuario no se puede borrar a si mismo");
+        }
+        usuarioDAO.deleteById(id);
+    }
 
 }
