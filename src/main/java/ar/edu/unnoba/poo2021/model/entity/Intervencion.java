@@ -16,7 +16,7 @@ public class Intervencion implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Date fechaHoraInicio;
-    private String fechaHoraFin;
+    private Date fechaHoraFin;
     private String paciente;
     private String descripcion;
     private String Profesional;
@@ -37,11 +37,11 @@ public class Intervencion implements Serializable {
         this.fechaHoraInicio = fechaHoraInicio;
     }
 
-    public String getFechaHoraFin() {
+    public Date getFechaHoraFin() {
         return fechaHoraFin;
     }
 
-    public void setFechaHoraFin(String fechaHoraFin) {
+    public void setFechaHoraFin(Date fechaHoraFin) {
         this.fechaHoraFin = fechaHoraFin;
     }
 
