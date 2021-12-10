@@ -18,6 +18,16 @@ public class UsuarioController {
     @Autowired
     private UsuarioService usuarioService;
 
+    @GetMapping("/inicio_usuarios")
+    public String inicioUsuarios(){
+        return "usuarios/inicio_usuarios";
+    }
+
+    @GetMapping("/vista_intervenciones")
+    public String listaIntervenciones(){
+        return "usuarios/vista_intervenciones";
+    }
+
     @GetMapping("/lista")
     public String index(Model model, @ModelAttribute("error") String errorMessage){
         if(errorMessage!=null){
