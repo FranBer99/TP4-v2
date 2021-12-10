@@ -1,7 +1,6 @@
 package ar.edu.unnoba.poo2021.model.service;
 import ar.edu.unnoba.poo2021.model.entity.Intervencion;
 
-import java.util.Date;
 import java.util.List;
 
 public interface IntervencionService {
