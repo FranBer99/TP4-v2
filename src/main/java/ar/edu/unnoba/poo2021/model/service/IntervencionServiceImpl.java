@@ -3,10 +3,12 @@ package ar.edu.unnoba.poo2021.model.service;
 import ar.edu.unnoba.poo2021.model.entity.Intervencion;
 import ar.edu.unnoba.poo2021.model.repository.IntervencionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
 
+@Service
 public class IntervencionServiceImpl implements IntervencionService{
 
     @Autowired
@@ -14,7 +16,7 @@ public class IntervencionServiceImpl implements IntervencionService{
 
     @Override
     public Intervencion findById(Long id) {
-        return intervencionRepository.findByID(id);
+        return intervencionRepository.findById(id).get();
     }
 
     @Override
