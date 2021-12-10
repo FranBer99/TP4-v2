@@ -26,8 +26,8 @@
             <td th:text="${usuario.email}"></td>
             <td th:text="${usuario.nombre}"></td>
             <td th:text="${usuario.apellido}"></td>
-            <td><a th:href="@{/private/editar/{id}(id=${usuario.id})}">X</a></td>
-            <td><a th:href="@{/private/borrar/{id}(id=${usuario.id})}">X</a></td>
+            <td><a th:href="@{/usuarios/editar/{id}(id=${usuario.id})}">X</a></td>
+            <td><a th:href="@{/usuarios/borrar/{id}(id=${usuario.id})}">X</a></td>
         </tr>
         </tbody>
     </table>

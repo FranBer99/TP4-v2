@@ -1,8 +1,7 @@
-package ar.edu.unnoba.poo2021.model.impl;
+package ar.edu.unnoba.poo2021.model.service;
 
-import ar.edu.unnoba.poo2021.model.dao.UsuarioDAO;
 import ar.edu.unnoba.poo2021.model.entity.Usuario;
-import ar.edu.unnoba.poo2021.model.service.UsuarioService;
+import ar.edu.unnoba.poo2021.model.repository.UsuarioRepository;
 
 import java.util.List;
 
@@ -12,13 +11,13 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UsuarioServiceimpl implements UsuarioService{
+public class UsuarioServiceImpl implements UsuarioService{
 
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
 
     @Autowired
-    private UsuarioDAO usuarioDAO;
+    private UsuarioRepository usuarioDAO;
 
     @Override
     public Usuario findByEmail(String email) {

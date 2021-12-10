@@ -1,7 +1,5 @@
 package ar.edu.unnoba.poo2021.controller;
 
-import ar.edu.unnoba.poo2021.model.entity.Usuario;
-import ar.edu.unnoba.poo2021.model.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,6 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import ar.edu.unnoba.poo2021.model.entity.Usuario;
+import ar.edu.unnoba.poo2021.model.service.UsuarioService;
 
 @Controller
 public class LoginController {

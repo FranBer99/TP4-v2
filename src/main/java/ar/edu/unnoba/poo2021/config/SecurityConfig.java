@@ -1,4 +1,4 @@
-package ar.edu.unnoba.poo2021.security;
+package ar.edu.unnoba.poo2021.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -29,12 +29,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().antMatchers("/","/auth/**","/public/**","/css/**","/js/**").permitAll().anyRequest().authenticated()
+        http.authorizeRequests().antMatchers("/","/auth/**","/css/**").permitAll().anyRequest().authenticated()
                 .and()
-                .formLogin().loginPage("/auth/login").defaultSuccessUrl("/private/index",true).failureUrl("/auth/login?error=true")
+                .formLogin().loginPage("/auth/login").defaultSuccessUrl("/usuarios/lista",true).failureUrl("/auth/login?error=true")
                 .loginProcessingUrl("/auth/login-post").permitAll()
                 .and()
-                .logout().logoutUrl("/logout").logoutSuccessUrl("/public/index");
+                .logout().logoutUrl("/logout").logoutSuccessUrl("/usuarios/logout").permitAll();
     }
 
 

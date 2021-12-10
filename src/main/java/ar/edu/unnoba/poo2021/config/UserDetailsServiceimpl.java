@@ -1,7 +1,7 @@
-package ar.edu.unnoba.poo2021.security;
+package ar.edu.unnoba.poo2021.config;
 
-import ar.edu.unnoba.poo2021.model.dao.UsuarioDAO;
 import ar.edu.unnoba.poo2021.model.entity.Usuario;
+import ar.edu.unnoba.poo2021.model.repository.UsuarioRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
 public class UserDetailsServiceimpl implements UserDetailsService {
 
     @Autowired
-    private UsuarioDAO usuarioDAO;
+    private UsuarioRepository usuarioDAO;
 
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
