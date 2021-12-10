@@ -1,10 +1,10 @@
 package ar.edu.unnoba.poo2021.model.service;
 
 import ar.edu.unnoba.poo2021.model.entity.Intervencion;
-import ar.edu.unnoba.poo2021.model.entity.Usuario;
 import ar.edu.unnoba.poo2021.model.repository.IntervencionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.Date;
 import java.util.List;
 
 public class IntervencionServiceImpl implements IntervencionService{
@@ -19,7 +19,7 @@ public class IntervencionServiceImpl implements IntervencionService{
 
     @Override
     public Intervencion registrar(Intervencion intervencion) throws Exception{
-        if( intervencionRepository.findBetweenFechaHora(intervencion.getFechaHoraInicio(), intervencion.getFechaHoraFin()) != null){
+        if( findBetweenFechaHora(intervencion.getFechaHoraInicio(), intervencion.getFechaHoraFin()) != null){
             throw new Exception("Esta fecha no esta disponible, pruebe otra");
         }else{
             return intervencionRepository.save(intervencion);
@@ -41,5 +41,20 @@ public class IntervencionServiceImpl implements IntervencionService{
     @Override
     public void delete(Long id) {
         intervencionRepository.delete(findById(id));
+    }
+
+    @Override
+    public Intervencion findBetweenFechaHora(Date inicio, Date fin) {
+        for(Intervencion i : getIntervenciones()){
+            if(inicio.after(i.getFechaHoraInicio()) && (inicio.before(i.getFechaHoraFin()))){
+                return i; }
+            if(inicio.before(i.getFechaHoraInicio()) && (fin.after(i.getFechaHoraInicio()))){
+                return i; }
+            if(inicio.before(i.getFechaHoraFin()) && (fin.after(i.getFechaHoraFin()))){
+                return i; }
+            if(inicio.before(i.getFechaHoraInicio()) && (fin.after(i.getFechaHoraFin()))){
+                return i; }
+        }
+        return null;
     }
 }

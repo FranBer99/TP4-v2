@@ -9,6 +9,5 @@ import java.util.Date;
 @Repository
 public interface IntervencionRepository extends JpaRepository<Intervencion, Long> {
     public Intervencion findByID(Long id);
-    public Intervencion findBetweenFechaHora(Date inicio, Date fin);
 }
 
