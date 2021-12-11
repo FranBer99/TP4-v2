@@ -1,7 +1,7 @@
 package ar.edu.unnoba.poo2021.model.entity;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDateTime;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,9 +18,9 @@ public class Intervencion implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Temporal(TemporalType.TIMESTAMP)
-    private Date fechaHoraInicio;
+    private LocalDateTime fechaHoraInicio;
     @Temporal(TemporalType.TIMESTAMP)
-    private Date fechaHoraFin;
+    private LocalDateTime fechaHoraFin;
     private String paciente;
     private String descripcion;
     private String Profesional;
@@ -33,19 +33,19 @@ public class Intervencion implements Serializable {
         this.id = id;
     }
 
-    public Date getFechaHoraInicio() {
+    public LocalDateTime getFechaHoraInicio() {
         return fechaHoraInicio;
     }
 
-    public void setFechaHoraInicio(Date fechaHoraInicio) {
+    public void setFechaHoraInicio(LocalDateTime fechaHoraInicio) {
         this.fechaHoraInicio = fechaHoraInicio;
     }
 
-    public Date getFechaHoraFin() {
+    public LocalDateTime getFechaHoraFin() {
         return fechaHoraFin;
     }
 
-    public void setFechaHoraFin(Date fechaHoraFin) {
+    public void setFechaHoraFin(LocalDateTime fechaHoraFin) {
         this.fechaHoraFin = fechaHoraFin;
     }
 
