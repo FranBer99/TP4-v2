@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name="intervencion")
@@ -15,7 +17,9 @@ public class Intervencion implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Temporal(TemporalType.TIMESTAMP)
     private Date fechaHoraInicio;
+    @Temporal(TemporalType.TIMESTAMP)
     private Date fechaHoraFin;
     private String paciente;
     private String descripcion;

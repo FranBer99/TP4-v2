@@ -1,8 +1,6 @@
 package ar.edu.unnoba.poo2021.controller;
 
-import ar.edu.unnoba.poo2021.model.entity.Intervencion;
 import ar.edu.unnoba.poo2021.model.entity.Usuario;
-import ar.edu.unnoba.poo2021.model.service.IntervencionService;
 import ar.edu.unnoba.poo2021.model.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -19,17 +17,9 @@ public class UsuarioController {
     @Autowired
     private UsuarioService usuarioService;
 
-    @Autowired
-    private IntervencionService intervencionService;
-
     @GetMapping("/inicio_usuarios")
     public String inicioUsuarios(){
         return "usuarios/inicio_usuarios";
-    }
-
-    @GetMapping("/vista_intervenciones")
-    public String listaIntervenciones(){
-        return "usuarios/vista_intervenciones";
     }
 
     @GetMapping("/lista")
@@ -72,20 +62,5 @@ public class UsuarioController {
     @GetMapping("/logout")
     public String logout(){
         return"usuarios/logout";
-    }
-
-    @GetMapping("/reg_intervencion")
-    public String regIntervencionForm(Model model){
-        model.addAttribute("intervencion", new Intervencion());
-        return"usuarios/reg_intervencion";
-    }
-    @PostMapping("/reg_intervencion")
-    public String regIntervencion(@ModelAttribute Intervencion intervencion, Model model, RedirectAttributes redirectAttributes){
-        try{
-            model.addAttribute("intervencion", intervencionService.registrar(intervencion));
-        }catch(Exception e){
-            redirectAttributes.addFlashAttribute("error",e.getMessage());
-            return "redirect:/usuarios/reg_intervencion"; }
-        return "redirect:/usuarios/reg_intervencion";
     }
 }
