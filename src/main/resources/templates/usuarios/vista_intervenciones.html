@@ -28,11 +28,11 @@
         </tr>
         </tbody>
     </table>
-    <form th:action="@{/logout}" method="post">
-        <button type="submit" class="btn btn-primary mt-3">Salir</button>
-    </form>
     <form action="#" th:action="@{/usuarios/inicio_usuarios}" method="get">
         <button type="submit" class="btn btn-primary" name="sesion">Volver al inicio</button>
+    </form>
+    <form th:action="@{/logout}" method="post">
+        <button type="submit" class="btn btn-primary mt-3">Salir</button>
     </form>
 </div>
 </body>
