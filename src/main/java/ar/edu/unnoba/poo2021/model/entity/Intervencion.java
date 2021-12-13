@@ -1,5 +1,7 @@
 package ar.edu.unnoba.poo2021.model.entity;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Date;
@@ -11,8 +13,6 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
 @Entity
 @Table(name="intervencion")
 public class Intervencion implements Serializable {
@@ -20,7 +20,11 @@ public class Intervencion implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Temporal(TemporalType.TIMESTAMP)
+    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
     private Date fechaHoraInicio;
+    @Temporal(TemporalType.TIMESTAMP)
+    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
     private Date fechaHoraFin;
     private String paciente;
     private String descripcion;
