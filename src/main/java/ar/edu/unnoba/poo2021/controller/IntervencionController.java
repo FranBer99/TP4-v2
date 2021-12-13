@@ -1,6 +1,9 @@
 package ar.edu.unnoba.poo2021.controller;
 
+import ar.edu.unnoba.poo2021.model.entity.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -18,7 +21,7 @@ public class IntervencionController {
 
 	@GetMapping("/vista_intervenciones")
     public String listaIntervenciones(Model model){
-        model.addAttribute("intervenciones",intervencionService.getIntervencionesOrdenadas());
+        model.addAttribute("intervenciones",intervencionService.getIntervenciones());
 	    return "intervenciones/vista_intervenciones";
     }
 	
@@ -45,10 +48,16 @@ public class IntervencionController {
     }
 
     @GetMapping("/editar/{id}")
-    public String userEdit(@PathVariable("id") Long userId, Model model){
-        Intervencion intervencion  = intervencionService.findById(userId);
+    public String userEdit(@PathVariable("id") Long intervencionId, Model model){
+        Intervencion intervencion  = intervencionService.findById(intervencionId);
         model.addAttribute("intervencion",intervencion);
         return "intervenciones/editar";
+    }
+
+    @PostMapping("/editar")
+    public String update(@ModelAttribute Intervencion intervencion){
+        intervencionService.update(intervencion);
+        return "redirect:/intervenciones/vista_intervenciones";
     }
 
 }

@@ -16,6 +16,8 @@
             <th scope="col">Paciente</th>
             <th scope="col">Profesional</th>
             <th scope="col">Descripcion</th>
+            <th scope="col">Editar</th>
+            <th scope="col">Borrar</th>
         </tr>
         </thead>
         <tbody>
@@ -25,8 +27,8 @@
             <td th:text="${intervencion.paciente}"></td>
             <td th:text="${intervencion.Profesional}"></td>
             <td th:text="${intervencion.descripcion}"></td>
-            <td><a th:href="@{/intervencion/editar/{id}(id=${intervencion.id})}">X</a></td>
-            <td><a th:href="@{/intervencion/borrar/{id}(id=${intervencion.id})}">X</a></td>
+            <td><a th:href="@{/intervenciones/editar/{id}(id=${intervencion.id})}">X</a></td>
+            <td><a th:href="@{/intervenciones/borrar/{id}(id=${intervencion.id})}">X</a></td>
         </tr>
         </tbody>
     </table>
