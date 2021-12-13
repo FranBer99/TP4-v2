@@ -9,6 +9,7 @@
 <div class="container border gx-5">
     <h1 >Editar descripcion de intervencion</h1>
     <form action="#" th:action="@{/intervenciones/editar}" th:object="${intervencion}" method="post">
+        <input type="hidden" th:value="${intervencion.id}" th:attr="name='id'"/>
         <div class="form-group">
             <label for="nombre">Descripcion</label>
             <input id="nombre" type="text" th:field="*{descripcion}"/>
