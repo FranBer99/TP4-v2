@@ -66,7 +66,7 @@ public class UsuarioServiceImpl implements UsuarioService{
 	@Override
 	public List<Usuario> getUsuariosOrdenados() {
 		List<Usuario> usuarios = usuarioRepository.findAll();
-		usuarios.sort((o1, o2) -> (o1.getApellido() + o1.getNombre()).compareTo(o1.getApellido() + o1.getNombre()));
+        usuarios.sort((o2, o1) -> (o2.getApellido()+" "+o2.getNombre()).compareTo(o1.getApellido()+" "+o1.getNombre()));
     	return usuarios;
 	}
 
