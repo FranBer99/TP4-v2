@@ -7,7 +7,6 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -17,6 +16,11 @@ public class UsuarioController {
 
     @Autowired
     private UsuarioService usuarioService;
+
+    @GetMapping("/inicio_usuarios")
+    public String inicioUsuarios(){
+        return "usuarios/inicio_usuarios";
+    }
 
     @GetMapping("/lista")
     public String index(Model model, @ModelAttribute("error") String errorMessage){

@@ -31,7 +31,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests().antMatchers("/","/auth/**","/css/**").permitAll().anyRequest().authenticated()
                 .and()
-                .formLogin().loginPage("/auth/login").defaultSuccessUrl("/usuarios/lista",true).failureUrl("/auth/login?error=true")
+                .formLogin().loginPage("/auth/login").defaultSuccessUrl("/usuarios/inicio_usuarios",true).failureUrl("/auth/login?error=true")
                 .loginProcessingUrl("/auth/login-post").permitAll()
                 .and()
                 .logout().logoutUrl("/logout").logoutSuccessUrl("/usuarios/logout").permitAll();

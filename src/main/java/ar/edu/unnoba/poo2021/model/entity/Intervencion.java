@@ -1,12 +1,17 @@
 package ar.edu.unnoba.poo2021.model.entity;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name="intervencion")
@@ -15,8 +20,12 @@ public class Intervencion implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Temporal(TemporalType.TIMESTAMP)
+    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
     private Date fechaHoraInicio;
-    private String fechaHoraFin;
+    @Temporal(TemporalType.TIMESTAMP)
+    @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
+    private Date fechaHoraFin;
     private String paciente;
     private String descripcion;
     private String Profesional;
@@ -37,11 +46,11 @@ public class Intervencion implements Serializable {
         this.fechaHoraInicio = fechaHoraInicio;
     }
 
-    public String getFechaHoraFin() {
+    public Date getFechaHoraFin() {
         return fechaHoraFin;
     }
 
-    public void setFechaHoraFin(String fechaHoraFin) {
+    public void setFechaHoraFin(Date fechaHoraFin) {
         this.fechaHoraFin = fechaHoraFin;
     }
 
