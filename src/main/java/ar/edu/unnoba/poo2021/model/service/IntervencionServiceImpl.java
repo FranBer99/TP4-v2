@@ -59,4 +59,11 @@ public class IntervencionServiceImpl implements IntervencionService{
         }
         return null;
     }
+    
+    @Override
+    public List<Intervencion> getIntervencionesOrdenadas(){
+    	List<Intervencion> intervenciones = intervencionRepository.findAll();
+    	intervenciones.sort((o1, o2) -> o1.getFechaHoraInicio().compareTo(o2.getFechaHoraInicio()));
+    	return intervenciones;
+    }
 }

@@ -1,9 +1,6 @@
 package ar.edu.unnoba.poo2021.controller;
 
-import ar.edu.unnoba.poo2021.model.entity.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -21,7 +18,7 @@ public class IntervencionController {
 
 	@GetMapping("/vista_intervenciones")
     public String listaIntervenciones(Model model){
-        model.addAttribute("intervenciones",intervencionService.getIntervenciones());
+        model.addAttribute("intervenciones",intervencionService.getIntervencionesOrdenadas());
 	    return "intervenciones/vista_intervenciones";
     }
 	
