@@ -25,6 +25,8 @@
             <td th:text="${intervencion.paciente}"></td>
             <td th:text="${intervencion.Profesional}"></td>
             <td th:text="${intervencion.descripcion}"></td>
+            <td><a th:href="@{/intervencion/editar/{id}(id=${usuario.id})}">X</a></td>
+            <td><a th:href="@{/intervencion/borrar/{id}(id=${usuario.id})}">X</a></td>
         </tr>
         </tbody>
     </table>

@@ -20,8 +20,9 @@ public class IntervencionController {
     private IntervencionService intervencionService;
 
 	@GetMapping("/vista_intervenciones")
-    public String listaIntervenciones(){
-        return "intervenciones/vista_intervenciones";
+    public String listaIntervenciones(Model model){
+        model.addAttribute("intervenciones",intervencionService.getIntervenciones());
+	    return "intervenciones/vista_intervenciones";
     }
 	
 	@GetMapping("/reg_intervencion")
@@ -36,7 +37,7 @@ public class IntervencionController {
         }catch(Exception e){
             redirectAttributes.addFlashAttribute("error",e.getMessage());
             return "redirect:/intervenciones/reg_intervencion"; }
-        return "redirect:/intervenciones/reg_intervencion";
+        return "redirect:/intervenciones/vista_intervenciones";
     }
 
 }

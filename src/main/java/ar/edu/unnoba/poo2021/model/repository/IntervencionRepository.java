@@ -13,13 +13,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface IntervencionRepository extends JpaRepository<Intervencion, Long> {
-
-    @Query("select i" +
-            "from Intervencion i" +
-            "Where (fecha_hora_inicio > fechaHoraInicio and fecha_hora_inicio < fechaHoraFin) OR" +
-            "  (fecha_hora_fin > fechaHoraFin and fecha_hora_inicio < fechaHoraInicio) OR" +
-            "  (fecha_hora_fin > fechaHoraInicio and fecha_hora_fin < fechaHoraFin) OR" +
-            "  (fecha_hora_fin < fechaHoraFin and fecha_hora_inicio > fechaHoraInicio);")
-    public List<Intervencion> findBetweenFechas(@Param("fechaHoraInicio") LocalDateTime fechaHoraInicio, @Param("fechaHoraFin") LocalDateTime fechaHoraFin);
 }
 
