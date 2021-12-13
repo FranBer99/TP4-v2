@@ -21,7 +21,7 @@ public class IntervencionController {
 
 	@GetMapping("/vista_intervenciones")
     public String listaIntervenciones(Model model){
-        model.addAttribute("intervenciones",intervencionService.getIntervenciones());
+        model.addAttribute("intervenciones",intervencionService.getIntervencionesOrdenadas());
 	    return "intervenciones/vista_intervenciones";
     }
 	

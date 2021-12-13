@@ -11,4 +11,5 @@ public interface IntervencionService {
     public Intervencion update(Intervencion intervencion);
     public void delete(Long id);
     public Intervencion findBetweenFechaHora(Date inicio, Date fin);
+    public List<Intervencion> getIntervencionesOrdenadas();
 }

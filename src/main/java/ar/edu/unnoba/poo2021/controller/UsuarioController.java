@@ -27,7 +27,7 @@ public class UsuarioController {
         if(errorMessage!=null){
             model.addAttribute("error",errorMessage);
         }
-        model.addAttribute("usuarios",usuarioService.getUsuarios());
+        model.addAttribute("usuarios",usuarioService.getUsuariosOrdenados());
         return "usuarios/lista";
     }
 

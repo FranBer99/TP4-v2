@@ -48,6 +48,8 @@ public class IntervencionServiceImpl implements IntervencionService{
     @Override
     public Intervencion findBetweenFechaHora(Date inicio, Date fin) {
         for(Intervencion i : getIntervenciones()){
+        	if(inicio.equals(i.getFechaHoraInicio()) || fin.equals(i.getFechaHoraFin())){
+        		return i; }
             if(inicio.after(i.getFechaHoraInicio()) && (inicio.before(i.getFechaHoraFin()))){
                 return i; }
             if(inicio.before(i.getFechaHoraInicio()) && (fin.after(i.getFechaHoraInicio()))){
@@ -59,4 +61,12 @@ public class IntervencionServiceImpl implements IntervencionService{
         }
         return null;
     }
+    
+    @Override
+    public List<Intervencion> getIntervencionesOrdenadas(){
+    	List<Intervencion> intervenciones = intervencionRepository.findAll();
+    	intervenciones.sort((o1, o2) -> o2.getFechaHoraInicio().compareTo(o1.getFechaHoraInicio()));
+    	return intervenciones;
+    }
+    
 }
