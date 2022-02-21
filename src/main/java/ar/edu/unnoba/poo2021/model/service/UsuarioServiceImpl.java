@@ -1,5 +1,6 @@
 package ar.edu.unnoba.poo2021.model.service;
 
+import ar.edu.unnoba.poo2021.model.entity.Intervencion;
 import ar.edu.unnoba.poo2021.model.entity.Usuario;
 import ar.edu.unnoba.poo2021.model.repository.UsuarioRepository;
 
@@ -17,18 +18,18 @@ public class UsuarioServiceImpl implements UsuarioService{
     private BCryptPasswordEncoder passwordEncoder;
 
     @Autowired
-    private UsuarioRepository usuarioDAO;
+    private UsuarioRepository usuarioRepository;
 
     @Override
     public Usuario findByEmail(String email) {
-        return usuarioDAO.findByEmail(email);
+        return usuarioRepository.findByEmail(email);
     }
 
     @Override
     public Usuario registrar(Usuario u) throws Exception{
-        if(usuarioDAO.findByEmail(u.getEmail())== null){
+        if(usuarioRepository.findByEmail(u.getEmail())== null){
             u.setPassword(passwordEncoder.encode(u.getPassword()));
-            return usuarioDAO.save(u);
+            return usuarioRepository.save(u);
         }else{
             throw new Exception("Este mail no esta disponible, pruebe otro");
         }
@@ -37,29 +38,36 @@ public class UsuarioServiceImpl implements UsuarioService{
 
 	@Override
 	public Usuario getUsuario(Long id) {
-		return usuarioDAO.findById(id).get();
+		return usuarioRepository.findById(id).get();
 	}
 
 	@Override
 	public List<Usuario> getUsuarios() {
-		return usuarioDAO.findAll();
+		return usuarioRepository.findAll();
 	}
 
     @Override
 	public Usuario update(Usuario usuario) {
-        Usuario uDB = usuarioDAO.findById(usuario.getId()).get();
+        Usuario uDB = usuarioRepository.findById(usuario.getId()).get();
         uDB.setNombre(usuario.getNombre());
         uDB.setApellido(usuario.getApellido());
-        return usuarioDAO.save(uDB);
+        return usuarioRepository.save(uDB);
     }
 
     @Override
     public void delete(User sessionUser,Long id) throws Exception{
-        Usuario usuario = usuarioDAO.findByEmail(sessionUser.getUsername());
+        Usuario usuario = usuarioRepository.findByEmail(sessionUser.getUsername());
         if(usuario.getId().equals(id)){
             throw new Exception("Un usuario no se puede borrar a si mismo");
         }
-        usuarioDAO.deleteById(id);
+        usuarioRepository.deleteById(id);
     }
+
+	@Override
+	public List<Usuario> getUsuariosOrdenados() {
+		List<Usuario> usuarios = usuarioRepository.findAll();
+		usuarios.sort((o1, o2) -> (o1.getApellido() + o1.getNombre()).compareTo(o1.getApellido() + o1.getNombre()));
+    	return usuarios;
+	}
 
 }

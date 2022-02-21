@@ -11,4 +11,5 @@ public interface UsuarioService {
     public List<Usuario> getUsuarios();
     public Usuario update(Usuario user);
     public void delete(User sessionUser, Long id)throws Exception;
+    public List<Usuario> getUsuariosOrdenados();
 }

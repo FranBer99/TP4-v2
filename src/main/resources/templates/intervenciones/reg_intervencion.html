@@ -15,27 +15,27 @@
 
         <div class="row form-group">
             <label class="col-md-3">Fecha de inicio</label>
-            <input type="datetime-local" th:Date="*{fechaHoraInicio}" class="form-control col-md-7"/>
+            <input type="datetime-local" th:field="*{fechaHoraInicio}" class="form-control col-md-7" required/>
         </div>
 
         <div class="row form-group">
             <label class="col-md-3">Fecha de fin</label>
-            <input type="datetime-local" th:Date="*{fechaHoraFin}" class="form-control col-md-7"/>
+            <input type="datetime-local" th:field="*{fechaHoraFin}" class="form-control col-md-7" required/>
         </div>
 
         <div class="row form-group">
             <label class="col-md-3">Paciente</label>
-            <input type="text" th:field="*{paciente}" class="form-control col-md-7"/>
+            <input type="text" th:field="*{paciente}" class="form-control col-md-7" required/>
         </div>
 
         <div class="row form-group">
             <label class="col-md-3">Descripcion</label>
-            <input type="text" th:field="*{descripcion}" class="form-control col-md-7"/>
+            <input type="text" th:field="*{descripcion}" class="form-control col-md-7" required/>
         </div>
 
         <div class="row form-group">
             <label class="col-md-3">Profesional</label>
-            <input type="text" th:field="*{profesional}" class="form-control col-md-7"/>
+            <input type="text" th:field="*{profesional}" class="form-control col-md-7" required/>
         </div>
 
         <div class="row form-group">
