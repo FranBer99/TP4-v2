@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import ar.edu.unnoba.poo2021.model.entity.Intervencion;
+import ar.edu.unnoba.poo2021.model.entity.Quirofano;
 import ar.edu.unnoba.poo2021.model.service.IntervencionService;
+import ar.edu.unnoba.poo2021.model.service.QuirofanoService;
 
 @Controller
 @RequestMapping("/intervenciones")
@@ -18,6 +20,8 @@ public class IntervencionController {
 	
 	@Autowired
     private IntervencionService intervencionService;
+	@Autowired
+    private QuirofanoService quirofanoService;
 
 	@GetMapping("/vista_intervenciones")
     public String listaIntervenciones(Model model){
@@ -28,15 +32,18 @@ public class IntervencionController {
 	@GetMapping("/reg_intervencion")
     public String regIntervencionForm(Model model){
         model.addAttribute("intervencion", new Intervencion());
+        model.addAttribute("quirofanos", quirofanoService.getQuirofanos());
         return"intervenciones/reg_intervencion";
     }
     @PostMapping("/reg_intervencion")
-    public String regIntervencion(@ModelAttribute Intervencion intervencion, Model model, RedirectAttributes redirectAttributes){
+    public String regIntervencion(@ModelAttribute Intervencion intervencion, @ModelAttribute Quirofano quirofano, Model model, RedirectAttributes redirectAttributes){
         try{
-            model.addAttribute("intervencion", intervencionService.registrar(intervencion));
+        	intervencion.setQuirofano(quirofano);
+            model.addAttribute("intervencion", intervencionService.registrar(intervencion, quirofano));
         }catch(Exception e){
             redirectAttributes.addFlashAttribute("error",e.getMessage());
-            return "redirect:/intervenciones/reg_intervencion"; }
+            return "redirect:/intervenciones/reg_intervencion";
+            }
         return "redirect:/intervenciones/vista_intervenciones";
     }
 

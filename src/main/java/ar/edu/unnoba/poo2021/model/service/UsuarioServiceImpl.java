@@ -1,6 +1,5 @@
 package ar.edu.unnoba.poo2021.model.service;
 
-import ar.edu.unnoba.poo2021.model.entity.Intervencion;
 import ar.edu.unnoba.poo2021.model.entity.Usuario;
 import ar.edu.unnoba.poo2021.model.repository.UsuarioRepository;
 
@@ -33,7 +32,6 @@ public class UsuarioServiceImpl implements UsuarioService{
         }else{
             throw new Exception("Este mail no esta disponible, pruebe otro");
         }
-
     }
 
 	@Override
