@@ -75,5 +75,19 @@ public class IntervencionServiceImpl implements IntervencionService{
     	intervenciones.sort((o1, o2) -> o2.getFechaHoraInicio().compareTo(o1.getFechaHoraInicio()));
     	return intervenciones;
     }
+
+	@SuppressWarnings("deprecation")
+	@Override
+	public List<Intervencion> getIntervencionesFiltradas(Date fechaFiltro) {
+		List<Intervencion> intervencionesFiltradas = new ArrayList<>();
+		for(Intervencion intervencion : getIntervencionesOrdenadas()) {
+			if(intervencion.getFechaHoraInicio().getDay() == fechaFiltro.getDay() &&
+			   intervencion.getFechaHoraInicio().getMonth() == fechaFiltro.getMonth() &&
+			   intervencion.getFechaHoraInicio().getYear() == fechaFiltro.getYear()) {
+				intervencionesFiltradas.add(intervencion);
+			}
+		}
+		return intervencionesFiltradas;
+	}
     
 }

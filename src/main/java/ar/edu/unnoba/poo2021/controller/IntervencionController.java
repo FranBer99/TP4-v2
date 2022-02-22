@@ -1,16 +1,21 @@
 package ar.edu.unnoba.poo2021.controller;
 
-import ar.edu.unnoba.poo2021.model.entity.Usuario;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.userdetails.User;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
 import ar.edu.unnoba.poo2021.model.entity.Intervencion;
-import ar.edu.unnoba.poo2021.model.entity.Quirofano;
 import ar.edu.unnoba.poo2021.model.service.IntervencionService;
 import ar.edu.unnoba.poo2021.model.service.QuirofanoService;
 
@@ -24,9 +29,25 @@ public class IntervencionController {
     private QuirofanoService quirofanoService;
 
 	@GetMapping("/vista_intervenciones")
-    public String listaIntervenciones(Model model){
-        model.addAttribute("intervenciones",intervencionService.getIntervencionesOrdenadas());
+    public String listaIntervenciones(Model model, @DateTimeFormat(pattern = "yyyy-MM-dd") Date fechaFiltro){
+		if(fechaFiltro == null) {
+			model.addAttribute("intervenciones",intervencionService.getIntervencionesOrdenadas());
+		}
+		else {
+			model.addAttribute("intervenciones",intervencionService.getIntervencionesFiltradas(fechaFiltro));
+		}
 	    return "intervenciones/vista_intervenciones";
+    }
+	
+	@GetMapping("/matriz_intervenciones")
+    public String matrizIntervenciones(Model model, @DateTimeFormat(pattern = "yyyy-MM-dd") Date fechaFiltro){
+		if(fechaFiltro == null) {
+			model.addAttribute("mquirofanos",new ArrayList<>());
+		}
+		else {
+			model.addAttribute("mquirofanos",quirofanoService.getMatriz(fechaFiltro));
+		}
+	    return "intervenciones/matriz_intervenciones";
     }
 	
 	@GetMapping("/reg_intervencion")
@@ -36,10 +57,9 @@ public class IntervencionController {
         return"intervenciones/reg_intervencion";
     }
     @PostMapping("/reg_intervencion")
-    public String regIntervencion(@ModelAttribute Intervencion intervencion, @ModelAttribute Quirofano quirofano, Model model, RedirectAttributes redirectAttributes){
+    public String regIntervencion(@ModelAttribute Intervencion intervencion, Model model, RedirectAttributes redirectAttributes){
         try{
-        	intervencion.setQuirofano(quirofano);
-            model.addAttribute("intervencion", intervencionService.registrar(intervencion, quirofano));
+            model.addAttribute("intervencion", intervencionService.registrar(intervencion, intervencion.getQuirofano()));
         }catch(Exception e){
             redirectAttributes.addFlashAttribute("error",e.getMessage());
             return "redirect:/intervenciones/reg_intervencion";

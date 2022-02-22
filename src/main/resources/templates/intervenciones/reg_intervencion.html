@@ -11,7 +11,7 @@
     <span class="d-block" th:text="${error}"></span>
 </div>
 <div class="card-body">
-    <form th:action="@{/intervenciones/reg_intervencion/}"th:object="${intervencion}"method="post" role="form">
+    <form th:action="@{/intervenciones/reg_intervencion/}" th:object="${intervencion}" method="post" role="form">
 
         <div class="row form-group">
             <label class="col-md-3">Fecha de inicio</label>
@@ -40,10 +40,10 @@
         
         <div class="dropdown" >
         	<label class="col-md-3">Quirofano</label>
-			<select name="Quirofano">
-				<tr th:each="quirofano : ${quirofanos}">
-            		<option th:text="${quirofano.nombre}"></option>
-        		</tr>
+			<select name="Quirofano" th:field="*{quirofano}">
+				<option th:each="quiro:${quirofanos}" 
+						th:value="${quiro.id}"
+						th:text="${quiro.nombre}" />
 			</select>
 		</div>
 
