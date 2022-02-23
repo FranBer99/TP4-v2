@@ -23,18 +23,30 @@
     </tr>
     <tr th:each="mquirofano : ${mquirofanos}">
             <td th:text="${mquirofano.quirofano.nombre}"></td>
-            <td th:if="${mquirofano.rango0 == true}" style="background-color:rgb(255, 81, 81)"></td>
-            <td th:unless="${mquirofano.rango0 == true}" style="background-color:rgb(255, 255, 255)"></td>
-            <td th:if="${mquirofano.rango1 == true}" style="background-color:rgb(255, 81, 81)"></td>
-            <td th:unless="${mquirofano.rango1 == true}" style="background-color:rgb(255, 255, 255)"></td>
-            <td th:if="${mquirofano.rango2 == true}" style="background-color:rgb(255, 81, 81)"></td>
-            <td th:unless="${mquirofano.rango2 == true}" style="background-color:rgb(255, 255, 255)"></td>
-            <td th:if="${mquirofano.rango3 == true}" style="background-color:rgb(255, 81, 81)"></td>
-            <td th:unless="${mquirofano.rango3 == true}" style="background-color:rgb(255, 255, 255)"></td>
-            <td th:if="${mquirofano.rango4 == true}" style="background-color:rgb(255, 81, 81)"></td>
-            <td th:unless="${mquirofano.rango4 == true}" style="background-color:rgb(255, 255, 255)"></td>
-            <td th:if="${mquirofano.rango5 == true}" style="background-color:rgb(255, 81, 81)"></td>
-            <td th:unless="${mquirofano.rango5 == true}" style="background-color:rgb(255, 255, 255)"></td>
+            
+            <td th:if="${mquirofano.rango0 != null and mquirofano.rango0.estado == false}" style="background-color:rgb(255, 81, 81)"><a th:href="@{/intervenciones/vista_intervencion/{id}(id=${mquirofano.rango0.id})}">Ver</a></td>
+            <td th:if="${mquirofano.rango0 != null and mquirofano.rango0.estado == true}" style="background-color:rgb(128, 255, 128)"><a th:href="@{/intervenciones/vista_intervencion/{id}(id=${mquirofano.rango0.id})}">Ver</a></td>
+            <td th:unless="${mquirofano.rango0 != null}" style="background-color:rgb(255, 255, 255)"></td>
+            
+            <td th:if="${mquirofano.rango1 != null and mquirofano.rango1.estado == false}" style="background-color:rgb(255, 81, 81)"><a th:href="@{/intervenciones/vista_intervencion/{id}(id=${mquirofano.rango1.id})}">Ver</a></td>
+            <td th:if="${mquirofano.rango1 != null and mquirofano.rango1.estado == true}" style="background-color:rgb(128, 255, 128)"><a th:href="@{/intervenciones/vista_intervencion/{id}(id=${mquirofano.rango1.id})}">Ver</a></td>
+            <td th:unless="${mquirofano.rango1 != null}" style="background-color:rgb(255, 255, 255)"></td>
+            
+            <td th:if="${mquirofano.rango2 != null and mquirofano.rango2.estado == false}" style="background-color:rgb(255, 81, 81)"><a th:href="@{/intervenciones/vista_intervencion/{id}(id=${mquirofano.rango2.id})}">Ver</a></td>
+            <td th:if="${mquirofano.rango2 != null and mquirofano.rango2.estado == true}" style="background-color:rgb(128, 255, 128)"><a th:href="@{/intervenciones/vista_intervencion/{id}(id=${mquirofano.rango2.id})}">Ver</a></td>
+            <td th:unless="${mquirofano.rango2 != null}" style="background-color:rgb(255, 255, 255)"></td>
+            
+            <td th:if="${mquirofano.rango3 != null and mquirofano.rango3.estado == false}" style="background-color:rgb(255, 81, 81)"><a th:href="@{/intervenciones/vista_intervencion/{id}(id=${mquirofano.rango3.id})}">Ver</a></td>
+            <td th:if="${mquirofano.rango3 != null and mquirofano.rango3.estado == true}" style="background-color:rgb(128, 255, 128)"><a th:href="@{/intervenciones/vista_intervencion/{id}(id=${mquirofano.rango3.id})}">Ver</a></td>
+            <td th:unless="${mquirofano.rango3 != null}" style="background-color:rgb(255, 255, 255)"></td>
+            
+            <td th:if="${mquirofano.rango4 != null and mquirofano.rango4.estado == false}" style="background-color:rgb(255, 81, 81)"><a th:href="@{/intervenciones/vista_intervencion/{id}(id=${mquirofano.rango4.id})}">Ver</a></td>
+            <td th:if="${mquirofano.rango4 != null and mquirofano.rango4.estado == true}" style="background-color:rgb(128, 255, 128)"><a th:href="@{/intervenciones/vista_intervencion/{id}(id=${mquirofano.rango4.id})}">Ver</a></td>
+            <td th:unless="${mquirofano.rango4 != null}" style="background-color:rgb(255, 255, 255)"></td>
+            
+            <td th:if="${mquirofano.rango5 != null and mquirofano.rango5.estado == false}" style="background-color:rgb(255, 81, 81)"><a th:href="@{/intervenciones/vista_intervencion/{id}(id=${mquirofano.rango5.id})}">Ver</a></td>
+            <td th:if="${mquirofano.rango5 != null and mquirofano.rango5.estado == true}" style="background-color:rgb(128, 255, 128)"><a th:href="@{/intervenciones/vista_intervencion/{id}(id=${mquirofano.rango5.id})}">Ver</a></td>
+            <td th:unless="${mquirofano.rango5 != null}" style="background-color:rgb(255, 255, 255)"></td>
         </tr>
   </tbody>
 </table >

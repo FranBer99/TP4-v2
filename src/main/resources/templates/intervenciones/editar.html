@@ -13,6 +13,8 @@
         <div class="form-group">
             <label for="nombre">Descripcion</label>
             <input id="nombre" type="text" th:field="*{descripcion}"/>
+            <label for="estado">Estado</label>
+            <input id="estado" type="checkbox" checked th:field="*{estado}"/>
         </div>
         <button type="submit" class="btn btn-primary" name="nuevaDescricpion">Actualizar</button>
 

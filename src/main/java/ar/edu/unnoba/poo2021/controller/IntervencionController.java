@@ -86,5 +86,11 @@ public class IntervencionController {
         intervencionService.update(intervencion);
         return "redirect:/intervenciones/vista_intervenciones";
     }
-
+    
+    @GetMapping("/vista_intervencion/{id}")
+    public String vistaIntervencion(@PathVariable("id") Long intervencionId, Model model){
+        Intervencion intervencion  = intervencionService.findById(intervencionId);
+        model.addAttribute("intervencion",intervencion);
+        return "intervenciones/vista_intervencion";
+    }
 }

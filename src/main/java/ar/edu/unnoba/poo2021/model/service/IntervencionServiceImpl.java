@@ -43,6 +43,7 @@ public class IntervencionServiceImpl implements IntervencionService{
     public Intervencion update(Intervencion intervencion) {
         Intervencion iDB = intervencionRepository.findById(intervencion.getId()).get();
         iDB.setDescripcion(intervencion.getDescripcion());
+        iDB.setEstado(intervencion.isEstado());
         return intervencionRepository.save(iDB);
     }
 

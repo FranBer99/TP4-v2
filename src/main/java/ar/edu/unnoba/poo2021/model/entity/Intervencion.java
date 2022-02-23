@@ -31,6 +31,7 @@ public class Intervencion implements Serializable {
     private String paciente;
     private String descripcion;
     private String profesional;
+    private boolean estado;
     @ManyToOne
     @JoinColumn(name = "id_quirofano", nullable = false, updatable = false)
     private Quirofano quirofano;
@@ -83,7 +84,15 @@ public class Intervencion implements Serializable {
         this.profesional = profesional;
     }
 
-    public Quirofano getQuirofano() {
+    public boolean isEstado() {
+		return estado;
+	}
+
+	public void setEstado(boolean estado) {
+		this.estado = estado;
+	}
+
+	public Quirofano getQuirofano() {
 		return quirofano;
 	}
 

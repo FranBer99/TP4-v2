@@ -1,59 +1,62 @@
 package ar.edu.unnoba.poo2021.dto;
 
+import ar.edu.unnoba.poo2021.model.entity.Intervencion;
 import ar.edu.unnoba.poo2021.model.entity.Quirofano;
 
 public class MQuirofano {
 	private Quirofano quirofano;
-	private boolean rango0;
-	private boolean rango1;
-	private boolean rango2;
-	private boolean rango3;
-	private boolean rango4;
-	private boolean rango5;
+	private Intervencion rango0;
+	private Intervencion rango1;
+	private Intervencion rango2;
+	private Intervencion rango3;
+	private Intervencion rango4;
+	private Intervencion rango5;
+	
+	public Intervencion getRango0() {
+		return rango0;
+	}
+	public void setRango0(Intervencion rango0) {
+		this.rango0 = rango0;
+	}
+	public Intervencion getRango1() {
+		return rango1;
+	}
+	public void setRango1(Intervencion rango1) {
+		this.rango1 = rango1;
+	}
+	public Intervencion getRango2() {
+		return rango2;
+	}
+	public void setRango2(Intervencion rango2) {
+		this.rango2 = rango2;
+	}
+	public Intervencion getRango3() {
+		return rango3;
+	}
+	public void setRango3(Intervencion rango3) {
+		this.rango3 = rango3;
+	}
+	public Intervencion getRango4() {
+		return rango4;
+	}
+	public void setRango4(Intervencion rango4) {
+		this.rango4 = rango4;
+	}
+	public Intervencion getRango5() {
+		return rango5;
+	}
+	public void setRango5(Intervencion rango5) {
+		this.rango5 = rango5;
+	}
 	public Quirofano getQuirofano() {
 		return quirofano;
 	}
 	public void setQuirofano(Quirofano quirofano) {
 		this.quirofano = quirofano;
 	}
-	public boolean isRango0() {
-		return rango0;
-	}
-	public void setRango0(boolean rango0) {
-		this.rango0 = rango0;
-	}
-	public boolean isRango1() {
-		return rango1;
-	}
-	public void setRango1(boolean rango1) {
-		this.rango1 = rango1;
-	}
-	public boolean isRango2() {
-		return rango2;
-	}
-	public void setRango2(boolean rango2) {
-		this.rango2 = rango2;
-	}
-	public boolean isRango3() {
-		return rango3;
-	}
-	public void setRango3(boolean rango3) {
-		this.rango3 = rango3;
-	}
-	public boolean isRango4() {
-		return rango4;
-	}
-	public void setRango4(boolean rango4) {
-		this.rango4 = rango4;
-	}
-	public boolean isRango5() {
-		return rango5;
-	}
-	public void setRango5(boolean rango5) {
-		this.rango5 = rango5;
-	}
-	public MQuirofano(Quirofano quirofano, boolean rango0, boolean rango1, boolean rango2, boolean rango3,
-			boolean rango4, boolean rango5) {
+	
+	public MQuirofano(Quirofano quirofano, Intervencion rango0,Intervencion rango1, Intervencion rango2, Intervencion rango3,
+			Intervencion rango4, Intervencion rango5) {
 		super();
 		this.quirofano = quirofano;
 		this.rango0 = rango0;
@@ -65,11 +68,11 @@ public class MQuirofano {
 	}
 	
 	public MQuirofano() {
-		this.rango0 = false;
-		this.rango1 = false;
-		this.rango2 = false;
-		this.rango3 = false;
-		this.rango4 = false;
-		this.rango5 = false;
-	}	
+		this.rango0 = null;
+		this.rango1 = null;
+		this.rango2 = null;
+		this.rango3 = null;
+		this.rango4 = null;
+		this.rango5 = null;
+	}
 }

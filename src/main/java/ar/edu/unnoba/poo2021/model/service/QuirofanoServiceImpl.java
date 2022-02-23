@@ -38,22 +38,22 @@ public class QuirofanoServiceImpl implements QuirofanoService{
 				mquirofano.setQuirofano(quirofano);
 				for(Intervencion intervencion : intervencionService.getIntervencionesFiltradas2(quirofano.getIntervenciones(), fechaFiltro)) {
 					if(intervencion.getFechaHoraInicio().getHours() >= 0 && intervencion.getFechaHoraInicio().getHours() < 4) {
-						mquirofano.setRango0(true);
+						mquirofano.setRango0(intervencion);
 					}
 					if(intervencion.getFechaHoraInicio().getHours() >= 4 && intervencion.getFechaHoraInicio().getHours() < 8) {
-						mquirofano.setRango1(true);
+						mquirofano.setRango1(intervencion);
 					}
 					if(intervencion.getFechaHoraInicio().getHours() >= 8 && intervencion.getFechaHoraInicio().getHours() < 12) {
-						mquirofano.setRango2(true);
+						mquirofano.setRango2(intervencion);
 					}
 					if(intervencion.getFechaHoraInicio().getHours() >= 12 && intervencion.getFechaHoraInicio().getHours() < 16) {
-						mquirofano.setRango3(true);
+						mquirofano.setRango3(intervencion);
 					}
 					if(intervencion.getFechaHoraInicio().getHours() >= 16 && intervencion.getFechaHoraInicio().getHours() < 20) {
-						mquirofano.setRango4(true);
+						mquirofano.setRango4(intervencion);
 					}
 					if(intervencion.getFechaHoraInicio().getHours() >= 20 && intervencion.getFechaHoraInicio().getHours() < 24) {
-						mquirofano.setRango5(true);
+						mquirofano.setRango5(intervencion);
 					}
 				}
 				matriz.add(mquirofano);
