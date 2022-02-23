@@ -16,6 +16,8 @@ import ar.edu.unnoba.poo2021.model.repository.QuirofanoRepository;
 public class QuirofanoServiceImpl implements QuirofanoService{
 	    @Autowired
 	    QuirofanoRepository quirofanoRepository;
+	    @Autowired
+	    IntervencionService intervencionService;
 
 		@Override
 		public Quirofano findById(Long id) {
@@ -34,27 +36,27 @@ public class QuirofanoServiceImpl implements QuirofanoService{
 			for(Quirofano quirofano : quirofanos) {
 				MQuirofano mquirofano = new MQuirofano();
 				mquirofano.setQuirofano(quirofano);
-				//FIJARSE LO DE MANDAR AL FOR UNA LISTA CON LAS INTERVENCIONES FILTRADAS DEL QUIROFANO
-				for(Intervencion intervencion : quirofano.getIntervenciones().getIntervencionesFitlradas(fechaFiltro)) {
-					if(intervencion.getFechaHoraInicio().getHours() >= 0 && intervencion.getFechaHoraInicio().getHours() <= 4) {
+				for(Intervencion intervencion : intervencionService.getIntervencionesFiltradas2(quirofano.getIntervenciones(), fechaFiltro)) {
+					if(intervencion.getFechaHoraInicio().getHours() >= 0 && intervencion.getFechaHoraInicio().getHours() < 4) {
 						mquirofano.setRango0(true);
 					}
-					if(intervencion.getFechaHoraInicio().getHours() > 4 && intervencion.getFechaHoraInicio().getHours() <= 8) {
+					if(intervencion.getFechaHoraInicio().getHours() >= 4 && intervencion.getFechaHoraInicio().getHours() < 8) {
 						mquirofano.setRango1(true);
 					}
-					if(intervencion.getFechaHoraInicio().getHours() > 8 && intervencion.getFechaHoraInicio().getHours() <= 12) {
+					if(intervencion.getFechaHoraInicio().getHours() >= 8 && intervencion.getFechaHoraInicio().getHours() < 12) {
 						mquirofano.setRango2(true);
 					}
-					if(intervencion.getFechaHoraInicio().getHours() > 12 && intervencion.getFechaHoraInicio().getHours() <= 16) {
+					if(intervencion.getFechaHoraInicio().getHours() >= 12 && intervencion.getFechaHoraInicio().getHours() < 16) {
 						mquirofano.setRango3(true);
 					}
-					if(intervencion.getFechaHoraInicio().getHours() > 16 && intervencion.getFechaHoraInicio().getHours() <= 20) {
+					if(intervencion.getFechaHoraInicio().getHours() >= 16 && intervencion.getFechaHoraInicio().getHours() < 20) {
 						mquirofano.setRango4(true);
 					}
-					if(intervencion.getFechaHoraInicio().getHours() > 20 && intervencion.getFechaHoraInicio().getHours() <= 24) {
+					if(intervencion.getFechaHoraInicio().getHours() >= 20 && intervencion.getFechaHoraInicio().getHours() < 24) {
 						mquirofano.setRango5(true);
 					}
 				}
+				matriz.add(mquirofano);
 			}
 			return matriz;
 		}

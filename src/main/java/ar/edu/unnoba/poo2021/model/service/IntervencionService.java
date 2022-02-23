@@ -14,4 +14,5 @@ public interface IntervencionService {
     public List<Intervencion> findBetweenFechaHora(Date inicio, Date fin);
     public List<Intervencion> getIntervencionesOrdenadas();
     public List<Intervencion> getIntervencionesFiltradas(Date fechaFiltro);
+	List<Intervencion> getIntervencionesFiltradas2(List<Intervencion> intervenciones, Date fechaFiltro);
 }

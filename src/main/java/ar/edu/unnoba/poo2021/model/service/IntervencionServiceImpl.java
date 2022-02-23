@@ -89,5 +89,19 @@ public class IntervencionServiceImpl implements IntervencionService{
 		}
 		return intervencionesFiltradas;
 	}
+	
+	@SuppressWarnings("deprecation")
+	@Override
+	public List<Intervencion> getIntervencionesFiltradas2(List<Intervencion> intervenciones, Date fechaFiltro) {
+		List<Intervencion> intervencionesFiltradas = new ArrayList<>();
+		for(Intervencion intervencion : intervenciones) {
+			if(intervencion.getFechaHoraInicio().getDay() == fechaFiltro.getDay() &&
+			   intervencion.getFechaHoraInicio().getMonth() == fechaFiltro.getMonth() &&
+			   intervencion.getFechaHoraInicio().getYear() == fechaFiltro.getYear()) {
+				intervencionesFiltradas.add(intervencion);
+			}
+		}
+		return intervencionesFiltradas;
+	}
     
 }

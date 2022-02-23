@@ -23,14 +23,23 @@
     </tr>
     <tr th:each="mquirofano : ${mquirofanos}">
             <td th:text="${mquirofano.quirofano.nombre}"></td>
-            <td th:text="${mquirofano.rango0}"></td>
-            <td th:text="${mquirofano.rango1}"></td>
-            <td th:text="${mquirofano.rango2}"></td>
-            <td th:text="${mquirofano.rango3}"></td>
-            <td th:text="${mquirofano.rango4}"></td>
-            <td th:text="${mquirofano.rango5}"></td>
+            <td th:if="${mquirofano.rango0 == true}" style="background-color:rgb(255, 81, 81)"></td>
+            <td th:unless="${mquirofano.rango0 == true}" style="background-color:rgb(255, 255, 255)"></td>
+            <td th:if="${mquirofano.rango1 == true}" style="background-color:rgb(255, 81, 81)"></td>
+            <td th:unless="${mquirofano.rango1 == true}" style="background-color:rgb(255, 255, 255)"></td>
+            <td th:if="${mquirofano.rango2 == true}" style="background-color:rgb(255, 81, 81)"></td>
+            <td th:unless="${mquirofano.rango2 == true}" style="background-color:rgb(255, 255, 255)"></td>
+            <td th:if="${mquirofano.rango3 == true}" style="background-color:rgb(255, 81, 81)"></td>
+            <td th:unless="${mquirofano.rango3 == true}" style="background-color:rgb(255, 255, 255)"></td>
+            <td th:if="${mquirofano.rango4 == true}" style="background-color:rgb(255, 81, 81)"></td>
+            <td th:unless="${mquirofano.rango4 == true}" style="background-color:rgb(255, 255, 255)"></td>
+            <td th:if="${mquirofano.rango5 == true}" style="background-color:rgb(255, 81, 81)"></td>
+            <td th:unless="${mquirofano.rango5 == true}" style="background-color:rgb(255, 255, 255)"></td>
         </tr>
   </tbody>
 </table >
+	<form action="#" th:action="@{/intervenciones/vista_intervenciones}" method="get">
+    	<button type="submit" class="btn btn-primary" name="sesion">Regresar</button>
+    </form>
 </body>
 </html>
