@@ -29,12 +29,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().antMatchers("/","/auth/**","/css/**").permitAll().anyRequest().authenticated()
+        http.authorizeRequests().antMatchers("/auth/**","/css/**").permitAll()
+        		.and()
+        		.authorizeRequests().antMatchers("/intervenciones/admin/**","/usuarios/admin/**","/quirofanos/**","/profesionales/**").hasAuthority("ADMIN")
+        		.antMatchers("/intervenciones/user/**","/usuarios/user/**").hasAnyAuthority("ADMIN", "ROLE_USER")
+        		.anyRequest().authenticated()
                 .and()
-                .formLogin().loginPage("/auth/login").defaultSuccessUrl("/usuarios/inicio_usuarios",true).failureUrl("/auth/login?error=true")
+                .formLogin().loginPage("/auth/login").defaultSuccessUrl("/default",true).failureUrl("/auth/login?error=true")
                 .loginProcessingUrl("/auth/login-post").permitAll()
                 .and()
-                .logout().logoutUrl("/logout").logoutSuccessUrl("/usuarios/logout").permitAll();
+                .logout().logoutUrl("/logout").logoutSuccessUrl("/logout").permitAll();	
     }
 
 

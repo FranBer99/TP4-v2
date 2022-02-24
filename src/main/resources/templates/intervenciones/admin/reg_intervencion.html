@@ -11,7 +11,7 @@
     <span class="d-block" th:text="${error}"></span>
 </div>
 <div class="card-body">
-    <form th:action="@{/intervenciones/reg_intervencion/}" th:object="${intervencion}" method="post" role="form">
+    <form th:action="@{/intervenciones/admin/reg_intervencion/}" th:object="${intervencion}" method="post" role="form">
 
         <div class="row form-group">
             <label class="col-md-3">Fecha de inicio</label>
@@ -56,7 +56,7 @@
         </div>
 
     </form>
-    <form action="#" th:action="@{/usuarios/inicio_usuarios}" method="get">
+    <form action="#" th:action="@{/usuarios/admin/inicio}" method="get">
         <button type="submit" style="margin-left: 1%" class="btn btn-primary mt-3" name="sesion">Volver al inicio</button>
     </form>
 </div>

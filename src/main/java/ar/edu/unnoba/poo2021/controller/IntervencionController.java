@@ -31,71 +31,100 @@ public class IntervencionController {
 	@Autowired
     private ProfesionalService profesionalService;
 
-	@GetMapping("/vista_intervenciones")
-    public String listaIntervenciones(Model model, @DateTimeFormat(pattern = "yyyy-MM-dd") Date fechaFiltro){
+	@GetMapping("/admin/vista_intervenciones")
+    public String listaIntervencionesAdmin(Model model, @DateTimeFormat(pattern = "yyyy-MM-dd") Date fechaFiltro){
 		if(fechaFiltro == null) {
 			model.addAttribute("intervenciones",intervencionService.getIntervencionesOrdenadas());
 		}
 		else {
 			model.addAttribute("intervenciones",intervencionService.getIntervencionesFiltradas(fechaFiltro));
 		}
-	    return "intervenciones/vista_intervenciones";
+	    return "intervenciones/admin/vista_intervenciones";
     }
 	
-	@GetMapping("/matriz_intervenciones")
-    public String matrizIntervenciones(Model model, @DateTimeFormat(pattern = "yyyy-MM-dd") Date fechaFiltro){
+	@GetMapping("/admin/matriz_intervenciones")
+    public String matrizIntervencionesAdmin(Model model, @DateTimeFormat(pattern = "yyyy-MM-dd") Date fechaFiltro){
 		if(fechaFiltro == null) {
 			model.addAttribute("mquirofanos",new ArrayList<>());
 		}
 		else {
 			model.addAttribute("mquirofanos",quirofanoService.getMatriz(fechaFiltro));
 		}
-	    return "intervenciones/matriz_intervenciones";
+	    return "intervenciones/admin/matriz_intervenciones";
     }
 	
-	@GetMapping("/reg_intervencion")
+	@GetMapping("/admin/reg_intervencion")
     public String regIntervencionForm(Model model){
         model.addAttribute("intervencion", new Intervencion());
         model.addAttribute("profesionales", profesionalService.getProfesionales());
         model.addAttribute("quirofanos", quirofanoService.getQuirofanos());
-        return"intervenciones/reg_intervencion";
+        return"intervenciones/admin/reg_intervencion";
     }
 	
-    @PostMapping("/reg_intervencion")
+    @PostMapping("/admin/reg_intervencion")
     public String regIntervencion(@ModelAttribute Intervencion intervencion, Model model, RedirectAttributes redirectAttributes){
         try{
             model.addAttribute("intervencion", intervencionService.registrar(intervencion, intervencion.getQuirofano()));
         }catch(Exception e){
             redirectAttributes.addFlashAttribute("error",e.getMessage());
-            return "redirect:/intervenciones/reg_intervencion";
+            return "redirect:/intervenciones/admin/reg_intervencion";
             }
-        return "redirect:/intervenciones/vista_intervenciones";
+        return "redirect:/intervenciones/admin/vista_intervenciones";
     }
 
-    @GetMapping("/borrar/{id}")
+    @GetMapping("/admin/borrar/{id}")
     public String userDelete(@PathVariable("id") Long interventionId,
                              RedirectAttributes redirectAttributes){
         intervencionService.delete(interventionId);
-        return "redirect:/intervenciones/vista_intervenciones";
+        return "redirect:/intervenciones/admin/vista_intervenciones";
     }
 
-    @GetMapping("/editar/{id}")
+    @GetMapping("/admin/editar/{id}")
     public String userEdit(@PathVariable("id") Long intervencionId, Model model){
         Intervencion intervencion  = intervencionService.findById(intervencionId);
         model.addAttribute("intervencion",intervencion);
-        return "intervenciones/editar";
+        return "intervenciones/admin/editar";
     }
 
-    @PostMapping("/editar")
+    @PostMapping("/admin/editar")
     public String update(@ModelAttribute Intervencion intervencion){
         intervencionService.update(intervencion);
-        return "redirect:/intervenciones/vista_intervenciones";
+        return "redirect:/intervenciones/admin/vista_intervenciones";
     }
     
-    @GetMapping("/vista_intervencion/{id}")
-    public String vistaIntervencion(@PathVariable("id") Long intervencionId, Model model){
+    @GetMapping("/admin/vista_intervencion/{id}")
+    public String vistaIntervencionAdmin(@PathVariable("id") Long intervencionId, Model model){
         Intervencion intervencion  = intervencionService.findById(intervencionId);
         model.addAttribute("intervencion",intervencion);
-        return "intervenciones/vista_intervencion";
+        return "intervenciones/admin/vista_intervencion";
+    }
+    
+    @GetMapping("/user/vista_intervenciones")
+    public String listaIntervencionesUser(Model model, @DateTimeFormat(pattern = "yyyy-MM-dd") Date fechaFiltro){
+		if(fechaFiltro == null) {
+			model.addAttribute("intervenciones",intervencionService.getIntervencionesOrdenadas());
+		}
+		else {
+			model.addAttribute("intervenciones",intervencionService.getIntervencionesFiltradas(fechaFiltro));
+		}
+	    return "intervenciones/user/vista_intervenciones";
+    }
+	
+	@GetMapping("/user/matriz_intervenciones")
+    public String matrizIntervencionesUser(Model model, @DateTimeFormat(pattern = "yyyy-MM-dd") Date fechaFiltro){
+		if(fechaFiltro == null) {
+			model.addAttribute("mquirofanos",new ArrayList<>());
+		}
+		else {
+			model.addAttribute("mquirofanos",quirofanoService.getMatriz(fechaFiltro));
+		}
+	    return "intervenciones/user/matriz_intervenciones";
+    }
+	
+	@GetMapping("/user/vista_intervencion/{id}")
+    public String vistaIntervencionUser(@PathVariable("id") Long intervencionId, Model model){
+        Intervencion intervencion  = intervencionService.findById(intervencionId);
+        model.addAttribute("intervencion",intervencion);
+        return "intervenciones/user/vista_intervencion";
     }
 }

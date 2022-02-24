@@ -5,8 +5,13 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name="usuarios")
@@ -20,6 +25,13 @@ public class Usuario implements UserDetails {
     @Column(name = "email", nullable = false, unique = true)
     private String email;
     private String password;
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "usuario_roles",
+            joinColumns = @JoinColumn(name = "usuario_id"),
+            inverseJoinColumns = @JoinColumn(name = "rol_id")
+            )
+    private Set<Rol> roles = new HashSet<>();
 
     public Usuario(){
         super();
@@ -59,7 +71,11 @@ public class Usuario implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return Arrays.asList(new SimpleGrantedAuthority("ROLE_USER"));
+        List<SimpleGrantedAuthority> authorities = new ArrayList<>();
+        for (Rol rol : getRoles()) {
+            authorities.add(new SimpleGrantedAuthority(rol.getNombre()));
+        }
+        return authorities;
     }
 
     public String getPassword() {
@@ -95,7 +111,15 @@ public class Usuario implements UserDetails {
         this.password = password;
     }
 
-    private static final long serialVersionUID = 1L;
+    public Set<Rol> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(Set<Rol> roles) {
+		this.roles = roles;
+	}
+
+	private static final long serialVersionUID = 1L;
 
 
 }

@@ -10,4 +10,6 @@ public interface QuirofanoService {
     public Quirofano findById(Long id);
     public List<Quirofano> getQuirofanos();
     public List<MQuirofano> getMatriz(Date fechaFiltro);
+	public Object registrar(Quirofano quirofano);
+	public void delete(Long quirofanoId);
 }

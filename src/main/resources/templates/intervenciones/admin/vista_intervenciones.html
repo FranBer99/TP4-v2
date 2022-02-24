@@ -9,7 +9,7 @@
 <body>
 <div class="container mt-5">
 	<div class="row form-group">
-        <form action="#" th:action="@{/intervenciones/vista_intervenciones}" method="get">
+        <form action="#" th:action="@{/intervenciones/admin/vista_intervenciones}" method="get">
             <input type="date" style="width : 350px" class="form-control col-md-7" name="fechaFiltro"/>
         	<button type="submit" class="btn btn-primary r">Filtrar</button>
     	</form>
@@ -44,19 +44,16 @@
         </tbody>
     </table>
     
-    <form action="#" th:action="@{/intervenciones/reg_intervencion}" method="get">
+    <form action="#" th:action="@{/intervenciones/admin/reg_intervencion}" method="get">
         <button type="submit" class="btn btn-primary r">Regsitrar Intervencion</button>
     </form>
     <br>
-    <form action="#" th:action="@{/intervenciones/matriz_intervenciones}" method="get">
+    <form action="#" th:action="@{/intervenciones/admin/matriz_intervenciones}" method="get">
         <button type="submit" class="btn btn-primary r">Ver Matriz de Intervenciones</button>
     </form>
     <br>
-    <form action="#" th:action="@{/usuarios/inicio_usuarios}" method="get">
+    <form action="#" th:action="@{/usuarios/admin/inicio}" method="get">
         <button type="submit" class="btn btn-primary" name="sesion">Volver al inicio</button>
-    </form>
-    <form th:action="@{/logout}" method="post">
-        <button type="submit" class="btn btn-primary mt-3">Salir</button>
     </form>
 </div>
 </body>

@@ -7,16 +7,20 @@
 </head>
 <body>
 	<div>
-		<a th:href="@{/usuarios/lista}">Lista de usuarios</a>
+		<a th:href="@{/usuarios/admin/lista}">Lista de usuarios</a>
 		<a th:href="@{/profesionales/lista_profesionales}">Lista de profesionales</a>
 		<a th:href="@{/profesionales/reg_profesional}">Registrar profesional</a>
 	</div>
 	<div>
-		<a th:href="@{/intervenciones/vista_intervenciones}">Lista de intervenciones</a>
-		<a th:href="@{/intervenciones/reg_intervencion}">Registrar intervencion</a>
+		<a th:href="@{/quirofanos/lista_quirofanos}">Lista de quirofanos</a>
+		<a th:href="@{/quirofanos/reg_quirofano}">Registrar quirofano</a>
 	</div>
 	<div>
-		<a th:href="@{/usuarios/logout}">Salir</a>
+		<a th:href="@{/intervenciones/admin/vista_intervenciones}">Lista de intervenciones</a>
+		<a th:href="@{/intervenciones/admin/reg_intervencion}">Registrar intervencion</a>
+	</div>
+	<div>
+		<a th:href="@{/logout}">Salir</a>
 	</div>
 
 </body>
