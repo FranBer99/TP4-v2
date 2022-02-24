@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import ar.edu.unnoba.poo2021.model.entity.Intervencion;
 import ar.edu.unnoba.poo2021.model.service.IntervencionService;
+import ar.edu.unnoba.poo2021.model.service.ProfesionalService;
 import ar.edu.unnoba.poo2021.model.service.QuirofanoService;
 
 @Controller
@@ -27,6 +28,8 @@ public class IntervencionController {
     private IntervencionService intervencionService;
 	@Autowired
     private QuirofanoService quirofanoService;
+	@Autowired
+    private ProfesionalService profesionalService;
 
 	@GetMapping("/vista_intervenciones")
     public String listaIntervenciones(Model model, @DateTimeFormat(pattern = "yyyy-MM-dd") Date fechaFiltro){
@@ -53,9 +56,11 @@ public class IntervencionController {
 	@GetMapping("/reg_intervencion")
     public String regIntervencionForm(Model model){
         model.addAttribute("intervencion", new Intervencion());
+        model.addAttribute("profesionales", profesionalService.getProfesionales());
         model.addAttribute("quirofanos", quirofanoService.getQuirofanos());
         return"intervenciones/reg_intervencion";
     }
+	
     @PostMapping("/reg_intervencion")
     public String regIntervencion(@ModelAttribute Intervencion intervencion, Model model, RedirectAttributes redirectAttributes){
         try{

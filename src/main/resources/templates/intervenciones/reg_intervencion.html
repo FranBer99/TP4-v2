@@ -35,12 +35,16 @@
 
         <div class="row form-group">
             <label class="col-md-3">Profesional</label>
-            <input type="text" th:field="*{profesional}" class="form-control col-md-7" required/>
+			<select name="profesional" th:field="*{profesional}">
+				<option th:each="profesional:${profesionales}" 
+						th:value="${profesional.id}"
+						th:text="${profesional.matricula} + ' - ' + ${profesional.apellido} + ' ' + ${profesional.nombre}" />
+			</select>
         </div>
         
         <div class="dropdown" >
         	<label class="col-md-3">Quirofano</label>
-			<select name="Quirofano" th:field="*{quirofano}">
+			<select name="quirofano" th:field="*{quirofano}">
 				<option th:each="quiro:${quirofanos}" 
 						th:value="${quiro.id}"
 						th:text="${quiro.nombre}" />

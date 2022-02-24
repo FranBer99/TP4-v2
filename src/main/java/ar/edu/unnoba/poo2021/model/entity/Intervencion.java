@@ -5,12 +5,15 @@ import org.springframework.format.annotation.DateTimeFormat;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Date;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -30,7 +33,9 @@ public class Intervencion implements Serializable {
     private Date fechaHoraFin;
     private String paciente;
     private String descripcion;
-    private String profesional;
+    @ManyToOne
+    @JoinColumn(name = "id_profesional", nullable = false)
+    private Profesional profesional;
     private boolean estado;
     @ManyToOne
     @JoinColumn(name = "id_quirofano", nullable = false, updatable = false)
@@ -76,11 +81,11 @@ public class Intervencion implements Serializable {
         this.descripcion = descripcion;
     }
 
-    public String getProfesional() {
+    public Profesional getProfesional() {
         return profesional;
     }
 
-    public void setProfesional(String profesional) {
+    public void setProfesional(Profesional profesional) {
         this.profesional = profesional;
     }
 

@@ -33,7 +33,7 @@
             <td th:text="${intervencion.fechaHoraInicio}"></td>
             <td th:text="${intervencion.fechaHoraFin}"></td>
             <td th:text="${intervencion.paciente}"></td>
-            <td th:text="${intervencion.profesional}"></td>
+            <td th:text="${intervencion.profesional.matricula} + ' - ' + ${intervencion.profesional.apellido} + ' ' + ${intervencion.profesional.nombre}"></td>
             <td th:text="${intervencion.quirofano.nombre}"></td>
             <td th:text="${intervencion.descripcion}"></td>
             <td th:if="${intervencion.estado == true}">Realizada</td>

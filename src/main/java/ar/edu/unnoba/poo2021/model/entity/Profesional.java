@@ -1,10 +1,14 @@
 package ar.edu.unnoba.poo2021.model.entity;
 
 import java.io.Serializable;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -19,6 +23,8 @@ public class Profesional implements Serializable {
     private String telefono;
     private String email;
     private Long matricula;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "profesional")
+    private List<Intervencion> intervenciones;
 
     public Long getId() {
         return id;

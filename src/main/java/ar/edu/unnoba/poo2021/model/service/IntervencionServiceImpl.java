@@ -96,9 +96,9 @@ public class IntervencionServiceImpl implements IntervencionService{
 	public List<Intervencion> getIntervencionesFiltradas2(List<Intervencion> intervenciones, Date fechaFiltro) {
 		List<Intervencion> intervencionesFiltradas = new ArrayList<>();
 		for(Intervencion intervencion : intervenciones) {
-			if(intervencion.getFechaHoraInicio().getDay() == fechaFiltro.getDay() &&
-			   intervencion.getFechaHoraInicio().getMonth() == fechaFiltro.getMonth() &&
-			   intervencion.getFechaHoraInicio().getYear() == fechaFiltro.getYear()) {
+			if((intervencion.getFechaHoraInicio().getDate() == fechaFiltro.getDate() || intervencion.getFechaHoraFin().getDate() == fechaFiltro.getDate()) &&
+			   (intervencion.getFechaHoraInicio().getMonth() == fechaFiltro.getMonth() || intervencion.getFechaHoraFin().getMonth() == fechaFiltro.getMonth()) &&
+			   (intervencion.getFechaHoraInicio().getYear() == fechaFiltro.getYear() || intervencion.getFechaHoraFin().getYear() == fechaFiltro.getYear())) {
 				intervencionesFiltradas.add(intervencion);
 			}
 		}
