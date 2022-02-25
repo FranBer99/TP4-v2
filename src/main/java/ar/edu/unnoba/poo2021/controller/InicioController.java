@@ -15,4 +15,9 @@ public class InicioController {
     public String logout(){
         return "/logout";
     }
+
+    @GetMapping("/error")
+    public String handleError() {
+        return "/error";
+    }
 }
