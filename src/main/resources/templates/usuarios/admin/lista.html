@@ -26,16 +26,13 @@
             <td th:text="${usuario.email}"></td>
             <td th:text="${usuario.nombre}"></td>
             <td th:text="${usuario.apellido}"></td>
-            <td><a th:href="@{/usuarios/editar/{id}(id=${usuario.id})}">X</a></td>
-            <td><a th:href="@{/usuarios/borrar/{id}(id=${usuario.id})}">X</a></td>
+            <td><a th:href="@{/usuarios/admin/editar/{id}(id=${usuario.id})}">X</a></td>
+            <td><a th:href="@{/usuarios/admin/borrar/{id}(id=${usuario.id})}">X</a></td>
         </tr>
         </tbody>
     </table>
-    <form action="#" th:action="@{/usuarios/inicio_usuarios}" method="get">
+    <form action="#" th:action="@{/usuarios/admin/inicio}" method="get">
         <button type="submit" class="btn btn-primary" name="sesion">Volver al inicio</button>
-    </form>
-    <form th:action="@{/logout}" method="post">
-        <button type="submit" class="btn btn-primary mt-3">Salir</button>
     </form>
 </div>
 

@@ -4,7 +4,6 @@ import ar.edu.unnoba.poo2021.model.entity.Usuario;
 import ar.edu.unnoba.poo2021.model.repository.UsuarioRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -25,7 +24,7 @@ public class UserDetailsServiceimpl implements UserDetailsService {
             builder= User.withUsername(s);
             builder.disabled(false);
             builder.password(usuario.getPassword());
-            builder.authorities(new SimpleGrantedAuthority("ROLE_USER"));
+            builder.authorities(usuario.getAuthorities());
         }else{
             throw new UsernameNotFoundException("Usuario no encontrado");
         }

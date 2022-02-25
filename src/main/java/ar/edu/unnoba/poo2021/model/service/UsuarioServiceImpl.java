@@ -1,10 +1,13 @@
 package ar.edu.unnoba.poo2021.model.service;
 
-import ar.edu.unnoba.poo2021.model.entity.Intervencion;
+import ar.edu.unnoba.poo2021.model.entity.Rol;
 import ar.edu.unnoba.poo2021.model.entity.Usuario;
+import ar.edu.unnoba.poo2021.model.repository.RolRepository;
 import ar.edu.unnoba.poo2021.model.repository.UsuarioRepository;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
@@ -19,7 +22,9 @@ public class UsuarioServiceImpl implements UsuarioService{
 
     @Autowired
     private UsuarioRepository usuarioRepository;
-
+    @Autowired
+    private RolRepository rolRepository;
+    
     @Override
     public Usuario findByEmail(String email) {
         return usuarioRepository.findByEmail(email);
@@ -29,11 +34,13 @@ public class UsuarioServiceImpl implements UsuarioService{
     public Usuario registrar(Usuario u) throws Exception{
         if(usuarioRepository.findByEmail(u.getEmail())== null){
             u.setPassword(passwordEncoder.encode(u.getPassword()));
+            Set<Rol> roles = new HashSet<>();
+            roles.add(rolRepository.getById((long) 1));
+            u.setRoles(roles);
             return usuarioRepository.save(u);
         }else{
             throw new Exception("Este mail no esta disponible, pruebe otro");
         }
-
     }
 
 	@Override
@@ -66,7 +73,7 @@ public class UsuarioServiceImpl implements UsuarioService{
 	@Override
 	public List<Usuario> getUsuariosOrdenados() {
 		List<Usuario> usuarios = usuarioRepository.findAll();
-        usuarios.sort((o2, o1) -> (o2.getApellido()+" "+o2.getNombre()).compareTo(o1.getApellido()+" "+o1.getNombre()));
+		usuarios.sort((o1, o2) -> (o1.getApellido() + o1.getNombre()).compareTo(o1.getApellido() + o1.getNombre()));
     	return usuarios;
 	}
 

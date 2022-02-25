@@ -10,4 +10,14 @@ public class InicioController {
     public String inicio(){
         return "inicio";
     }
+    
+    @GetMapping("/logout")
+    public String logout(){
+        return "/logout";
+    }
+
+    @GetMapping("/error")
+    public String handleError() {
+        return "/error";
+    }
 }

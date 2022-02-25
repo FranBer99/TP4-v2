@@ -17,21 +17,21 @@ public class UsuarioController {
     @Autowired
     private UsuarioService usuarioService;
 
-    @GetMapping("/inicio_usuarios")
-    public String inicioUsuarios(){
-        return "usuarios/inicio_usuarios";
+    @GetMapping("/admin/inicio")
+    public String inicioAdmin(){
+        return "usuarios/admin/inicio";
     }
 
-    @GetMapping("/lista")
+    @GetMapping("/admin/lista")
     public String index(Model model, @ModelAttribute("error") String errorMessage){
         if(errorMessage!=null){
             model.addAttribute("error",errorMessage);
         }
         model.addAttribute("usuarios",usuarioService.getUsuariosOrdenados());
-        return "usuarios/lista";
+        return "usuarios/admin/lista";
     }
 
-    @GetMapping("/borrar/{id}")
+    @GetMapping("/admin/borrar/{id}")
     public String userDelete(@PathVariable("id") Long userId,
                              Authentication authentication,
                              RedirectAttributes redirectAttributes){
@@ -42,25 +42,30 @@ public class UsuarioController {
             redirectAttributes.addFlashAttribute("error",e.getMessage());
         }
 
-        return "redirect:/usuarios/lista";
+        return "redirect:/usuarios/admin/lista";
     }
 
 
-    @GetMapping("/editar/{id}")
+    @GetMapping("/admin/editar/{id}")
     public String userEdit(@PathVariable("id") Long userId, Model model){
         Usuario usuario = usuarioService.getUsuario(userId);
         model.addAttribute("usuario",usuario);
-        return "usuarios/editar";
+        return "usuarios/admin/editar";
     }
 
-    @PostMapping("/editar")
+    @PostMapping("/admin/editar")
     public String update(@ModelAttribute Usuario usuario){
         usuarioService.update(usuario);
-        return "redirect:/usuarios/lista";
+        return "redirect:/usuarios/admin/lista";
+    }
+    
+    @GetMapping("/user/inicio")
+    public String inicioUsuarios(){
+        return "usuarios/user/inicio";
     }
     
     @GetMapping("/logout")
     public String logout(){
-        return"usuarios/logout";
+        return"/logout";
     }
 }

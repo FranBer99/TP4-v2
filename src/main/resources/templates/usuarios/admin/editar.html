@@ -8,7 +8,7 @@
 <body>
 <div class="container border gx-5">
     <h1 >Editar Usuario</h1>
-    <form action="#" th:action="@{/usuarios/editar}" th:object="${usuario}" method="post">
+    <form action="#" th:action="@{/usuarios/admin/editar}" th:object="${usuario}" method="post">
         <input type="hidden" th:value="${usuario.id}" th:attr="name='id'"/>
         <div class="form-group">
             <label for="nombre">Nombre</label>
@@ -20,7 +20,7 @@
         </div>
         <button type="submit" class="btn btn-primary" name="nuevoUsuario">Actualizar</button>
 
-        <form action="#" th:action="@{/usuarios/lista}" method="get">
+        <form action="#" th:action="@{/usuarios/admin/lista}" method="get">
             <button type="submit" class="btn btn-primary" name="sesion">Cancelar</button>
         </form>
     </form>
