@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.w3.org/1999/xhtml">
+<html>
 	<head>
 		<meta charset="UTF-8">
 		<title>Menu de inicio</title>
@@ -38,8 +38,8 @@
 				<p class="card__exit"><i class="fas fa-times"></i></p>
 				<h2 class="card__title">Profesionales</h2>
 				<p class="card__apply">
-				  <a class="card__link" th:href="@{/profesionales/reg_profesional}">Registrar profesional<i class="fas fa-arrow-right"></i></a> <br>
-				  <a class="card__link" th:href="@{/profesionales/lista_profesionales}">Lista de profesionales<i class="fas fa-arrow-right"></i></a> <br>
+				  <a class="card__link" href="#">Registrar profesional<i class="fas fa-arrow-right"></i></a>
+				  <a class="card__link" href="#">Lista de profesionales<i class="fas fa-arrow-right"></i></a>
 				</p>
 			  </div>
 			  <div class="card card-3">
@@ -47,8 +47,8 @@
 				<p class="card__exit"><i class="fas fa-times"></i></p>
 				<h2 class="card__title">Quirofanos</h2>
 				<p class="card__apply">
-				  <a class="card__link" th:href="@{/quirofanos/reg_quirofano}">Registrar quirofano<i class="fas fa-arrow-right"></i></a> <br>
-				  <a class="card__link" th:href="@{/quirofanos/lista_quirofanos}">Lista de quirofanos<i class="fas fa-arrow-right"></i></a> <br>
+				  <a class="card__link" href="#">Registrar quirofano<i class="fas fa-arrow-right"></i></a>
+				  <a class="card__link" href="#">Lista de quirofanos<i class="fas fa-arrow-right"></i></a>
 				</p>
 			  </div>
 			  <div class="card card-4">
@@ -56,9 +56,9 @@
 				<p class="card__exit"><i class="fas fa-times"></i></p>
 				<h2 class="card__title">Intervenciones</h2>
 				<p class="card__apply">
-				  <a class="card__link" th:href="@{/intervenciones/admin/reg_intervencion}">Registrar intervencion<i class="fas fa-arrow-right"></i></a> <br>
-				  <a class="card__link" th:href="@{/intervenciones/admin/vista_intervenciones}">Lista de intervenciones<i class="fas fa-arrow-right"></i></a> <br>
-				  <a class="card__link" th:href="@{/intervenciones/admin/matriz_intervenciones}">Matriz de intervenciones<i class="fas fa-arrow-right"></i></a> <br>
+				  <a class="card__link" href="#">Registrar intervencion<i class="fas fa-arrow-right"></i></a>
+				  <a class="card__link" href="#">Lista de intervenciones<i class="fas fa-arrow-right"></i></a>
+				  <a class="card__link" href="#">Matriz de intervenciones<i class="fas fa-arrow-right"></i></a>
 				</p>
 			  </div>
 			</div>
