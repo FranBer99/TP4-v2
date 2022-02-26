@@ -51,7 +51,7 @@ public class IntervencionController {
         model.addAttribute("intervencion", new Intervencion());
         model.addAttribute("profesionales", profesionalService.getProfesionales());
         model.addAttribute("quirofanos", quirofanoService.getQuirofanos());
-        return"intervenciones/admin/reg_intervencion";
+        return "intervenciones/admin/reg_intervencion";
     }
 	
     @PostMapping("/admin/reg_intervencion")

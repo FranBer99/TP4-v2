@@ -1,12 +1,14 @@
+/*
 body{
-	font-family: arial, helvetica;
-	background: #e8e8e8;
+	font-family: 'Poppins', sans-serif;
+	background: #d8d8d8;
+	margin: 0;
 }
 
 .menu{
 	list-style: none;
 	padding: 0;
-	background: #092327;
+	background: #002921;
 	width: 100%;
 	max-width: 100%;
 	margin: 0;
@@ -25,9 +27,154 @@ body{
 }
 
 .menu li a:hover{
-	background: #ef8354;
+	background: #00bb96;
 }
 
 .menu_logout {
 	float: right;
 }
+*/
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+  }
+  
+  body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+	  Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  }
+
+	.menu{
+		list-style: none;
+		padding: 0;
+		background: #002921;
+		width: 100%;
+		max-width: 100%;
+		margin: 0;
+	}
+
+	.heading h1 {
+		padding-left: 10px;
+		text-align: left;
+		color: #fff;
+		text-transform: uppercase;
+		font-size: 50px;
+	}
+	.heading h1 span {
+		color: #00fecb;
+	}
+
+	.main-container {
+		padding: 30px;
+	  }
+  /* CARDS */
+  
+  .cards {
+	display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: 100px;
+  grid-template-areas:
+    "a b"
+	"a b"
+    "c d"
+	"c d";
+  align-items: start;
+  }
+  
+  .card {
+	margin: 20px;
+	padding: 20px;
+	width: 500px;
+	min-height: 200px;
+	border-radius: 10px;
+	box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
+	transition: all 0.2s;
+  }
+  
+  .card:hover {
+	box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4);
+	transform: scale(1.01);
+  }
+  
+  .card__link,
+  .card__exit,
+  .card__icon {
+	position: relative;
+	top: 30%;
+	left: 35%;
+	text-decoration: none;
+	color: rgba(255, 255, 255, 0.9);
+  }
+  
+  .card__link::after {
+	position: absolute;
+	top: 25px;
+	left: 0;
+	content: "";
+	width: 0%;
+	height: 3px;
+	background-color: rgba(255, 255, 255, 0.6);
+	transition: all 0.5s;
+  }
+  
+  .card__link:hover::after {
+	width: 100%;
+  }
+  
+  .card__exit {
+	justify-self: end;
+  }
+  
+  .card__icon {
+	font-size: 30px;
+  }
+  
+  .card__title {
+	text-align: center;
+	font-size: xx-large;
+	position: relative;
+	top: 25%;
+	font-weight: 500;
+	color: #ffffff;
+  }
+  
+  .card__apply {
+	font-weight: bold;
+	position: relative;
+	top: 50%;
+	right: 30%;
+	align-self: auto;
+  }
+  
+  /* CARD BACKGROUNDS */
+  
+  .card-1 {
+	grid-area: a;
+	background: radial-gradient(#1fe4f5, #3fbafe);
+  }
+  
+  .card-2 {
+	grid-area: b;
+	background: radial-gradient(#fbc1cc, #fa99b2);
+  }
+  
+  .card-3 {
+	grid-area: c;
+	background: radial-gradient(#76b2fe, #b69efe);
+  }
+  
+  .card-4 {
+	grid-area: d;
+	background: radial-gradient(#60efbc, #58d5c9);
+  }
+  
+  /* RESPONSIVE */
+  
+  @media (max-width: 1600px) {
+	.cards {
+	  justify-content: center;
+	}
+  }
+  

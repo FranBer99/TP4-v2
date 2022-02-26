@@ -6,6 +6,7 @@
 		<link th:href="@{../../css/inicio.css}" rel="stylesheet" type="text/css" media="screen"/>   
 	</head>
 	<body>
+		<!--
 		<ul class="menu">
 			<li><a th:href="@{/usuarios/admin/lista}">Lista de usuarios</a></li>
 			<li><a th:href="@{/profesionales/lista_profesionales}">Lista de profesionales</a></li>
@@ -14,7 +15,49 @@
 			<li><a th:href="@{/quirofanos/reg_quirofano}">Reg. quirofano</a></li>
 			<li><a th:href="@{/intervenciones/admin/vista_intervenciones}">Lista de intervenciones</a></li>
 			<li><a th:href="@{/intervenciones/admin/reg_intervencion}">Reg. intervencion</a></li>
-			<li class="menu_logout"><a th:href="@{/logout}">Salir</a></li>
+			<li class="menu_logout"><a th:href="@{/logout}">Cerrar Sesión</a></li>
 		</ul>
+		-->
+		<div class="heading">
+			<ul class="menu">
+			<li><h1>PIZZA<span>RAP</span></h1></li>
+			</ul>
+		</div>
+		<div class="main-container">
+			<div class="cards">
+			  <div class="card card-1">
+				<div class="card__icon"><i class="fas fa-bolt"></i></div>
+				<p class="card__exit"><i class="fas fa-times"></i></p>
+				<h2 class="card__title">Usuarios</h2>
+				<p class="card__apply">
+				  <a class="card__link" th:href="@{/usuarios/admin/lista}">Lista de Usuarios<i class="fas fa-arrow-right"></i></a>
+				</p>
+			  </div>
+			  <div class="card card-2">
+				<div class="card__icon"><i class="fas fa-bolt"></i></div>
+				<p class="card__exit"><i class="fas fa-times"></i></p>
+				<h2 class="card__title">Profesionales</h2>
+				<p class="card__apply">
+				  <a class="card__link" href="#">Apply Now <i class="fas fa-arrow-right"></i></a>
+				</p>
+			  </div>
+			  <div class="card card-3">
+				<div class="card__icon"><i class="fas fa-bolt"></i></div>
+				<p class="card__exit"><i class="fas fa-times"></i></p>
+				<h2 class="card__title">Quirofanos</h2>
+				<p class="card__apply">
+				  <a class="card__link" href="#">Apply Now <i class="fas fa-arrow-right"></i></a>
+				</p>
+			  </div>
+			  <div class="card card-4">
+				<div class="card__icon"><i class="fas fa-bolt"></i></div>
+				<p class="card__exit"><i class="fas fa-times"></i></p>
+				<h2 class="card__title">Intervenciones</h2>
+				<p class="card__apply">
+				  <a class="card__link" href="#">Apply Now <i class="fas fa-arrow-right"></i></a>
+				</p>
+			  </div>
+			</div>
+		  </div>
 	</body>
 </html>

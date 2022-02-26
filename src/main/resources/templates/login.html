@@ -6,16 +6,16 @@
 	<link th:href="@{../css/login.css}" rel="stylesheet" type="text/css" media="screen"/> 
 </head>
 <body>
-    <div th:if="${param.error}" class="alerta_error">Credenciales incorrectas</div>
 	<div class="contact-form">
+		<div th:if="${param.error}" class="alerta_error">Credenciales incorrectas</div><br>
 		<form method="post" th:action="@{/auth/login-post}">
 			<p>Email</p><input placeholder="Ingrese su email"  name="username" type="text">
 			<p>Contraseña</p><input placeholder="Ingrese su contraseña" name="password" type="password">
 			<input type="submit" value="Iniciar sesión">
 		</form>
-        <form th:action="@{/}" method="get">
-            <input type="submit" name="sesion" value="Salir">
-        </form>
+		<form method="get" th:action="@{/}">
+			<input type="submit" value="Cancelar">
+		</form>
 	</div>
 </body>
 </html>
