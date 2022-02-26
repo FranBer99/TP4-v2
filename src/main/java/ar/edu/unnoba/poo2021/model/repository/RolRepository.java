@@ -6,4 +6,5 @@ import ar.edu.unnoba.poo2021.model.entity.Rol;
 
 @Repository
 public interface RolRepository extends JpaRepository<Rol, Long> {
+    public Rol findByNombre(String nombre); 
 }

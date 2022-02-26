@@ -38,8 +38,8 @@
             <td th:text="${intervencion.descripcion}"></td>
             <td th:if="${intervencion.estado == true}">Realizada</td>
             <td th:unless="${intervencion.estado == true}">Pendiente</td>
-            <td><a th:href="@{/intervenciones/editar/{id}(id=${intervencion.id})}">X</a></td>
-            <td><a th:href="@{/intervenciones/borrar/{id}(id=${intervencion.id})}">X</a></td>
+            <td><a th:href="@{/intervenciones/admin/editar/{id}(id=${intervencion.id})}">X</a></td>
+            <td><a th:href="@{/intervenciones/admin/borrar/{id}(id=${intervencion.id})}">X</a></td>
         </tr>
         </tbody>
     </table>

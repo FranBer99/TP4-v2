@@ -35,7 +35,7 @@ public class UsuarioServiceImpl implements UsuarioService{
         if(usuarioRepository.findByEmail(u.getEmail())== null){
             u.setPassword(passwordEncoder.encode(u.getPassword()));
             Set<Rol> roles = new HashSet<>();
-            roles.add(rolRepository.getById((long) 1));
+            roles.add(rolRepository.findByNombre("ROLE_USER"));
             u.setRoles(roles);
             return usuarioRepository.save(u);
         }else{
