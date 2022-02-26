@@ -2,9 +2,9 @@
 <html>
 	<head>
     <title>
-        Registrar profesional
+        Registrar x
     </title>
-    <link th:href="@{../../../css/register_style.css}" rel="stylesheet" type="text/css" media="screen"/>
+    <link th:href="@{../../css/register_style.css}" rel="stylesheet" type="text/css" media="screen"/>
 </head>
 <body>
 <div class="heading">

@@ -1,37 +1,35 @@
 <!DOCTYPE html>
 <html>
-    <head>
+	<head>
     <title>
-        Editar usuario
+        Editar Usuario
     </title>
-    <link th:href="@{../../../css/register_style.css}" rel="stylesheet" type="text/css" media="screen"/>
-</head>
+    <link th:href="@{../../css/inicio.css}" rel="stylesheet" type="text/css" media="screen"/>
+	</head>
 <body>
 <div class="heading">
     <ul class="menu">
         <li><h1>PIZZA<span>RAP</span></h1></li>
     </ul>
 </div>
-
-<form th:action="@{/usuarios/admin/editar}" th:object="${usuario}" method="post" role="form">
+<div class="container border gx-5">
+    <h1 >Editar Usuario</h1>
+    <form action="#" th:action="@{/usuarios/admin/editar}" th:object="${usuario}" method="post" role="form">
     <div class="container">
-        <h1>Editar usuario</h1>
-        <hr>
-
-        <input type="hidden" th:value="${usuario.id}" th:attr="name='id'"/>
+		<input type="hidden" th:value="${usuario.id}" th:attr="name='id'"/>
 
         <label for="email"><b>Nombre</b></label>
         <input type="text" th:field="*{nombre}" placeholder="Ingrese su nombre" name="email" id="email" required>
 
         <label for="psw"><b>Apellido</b></label>
         <input type="text" th:field="*{apellido}" placeholder="Ingrese su Apellido" name="psw" id="psw" required>
-        <hr>
 
-        <button type="submit" class="registerbtn">Editar</button>
-
-        <a href="/usuarios/admin/inicio" class="button">Volver al inicio</a>
+		<button type="submit" class="registerbtn">Editar</button>
+		
+		<a href="/usuarios/admin/inicio" class="button">Volver al inicio</a>
     </div>
 </form>
+</div>
 
 </body>
 </html>
