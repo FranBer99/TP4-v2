@@ -46,9 +46,10 @@ header {
 }
 .welcome-text {
 	position: absolute;
+	margin-top: 15%;
+	margin-left: 33.3%;
 	width: 600px;
 	height: 300px;
-	margin: 20% 30%;
 	text-align: center;
 }
 .welcome-text h1 {
@@ -75,7 +76,6 @@ header {
 	background: #fff;
 	color: #333;
 }
-/*resposive*/
 
 @media (max-width:600px) {
 	.wrapper {
@@ -87,11 +87,6 @@ header {
 		text-align: center;
 		margin: auto;
 	}
-    /*
-    img {
-		width: ;
-	}
-    */
 	.nav-area {
 		float: none;
 		margin-top: 0;

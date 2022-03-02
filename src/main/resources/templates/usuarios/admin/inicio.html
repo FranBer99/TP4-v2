@@ -1,3 +1,4 @@
+<!--
 <!DOCTYPE html>
 <html xmlns:th="http://www.w3.org/1999/xhtml">
 	<head>
@@ -6,18 +7,6 @@
 		<link th:href="@{../../css/inicio.css}" rel="stylesheet" type="text/css" media="screen"/>   
 	</head>
 	<body>
-		<!--
-		<ul class="menu">
-			<li><a th:href="@{/usuarios/admin/lista}">Lista de usuarios</a></li>
-			<li><a th:href="@{/profesionales/lista_profesionales}">Lista de profesionales</a></li>
-			<li><a th:href="@{/profesionales/reg_profesional}">Reg. profesional</a></li>
-			<li><a th:href="@{/quirofanos/lista_quirofanos}">Lista de quirofanos</a></li>
-			<li><a th:href="@{/quirofanos/reg_quirofano}">Reg. quirofano</a></li>
-			<li><a th:href="@{/intervenciones/admin/vista_intervenciones}">Lista de intervenciones</a></li>
-			<li><a th:href="@{/intervenciones/admin/reg_intervencion}">Reg. intervencion</a></li>
-			<li class="menu_logout"><a th:href="@{/logout}">Cerrar Sesión</a></li>
-		</ul>
-		-->
 		<div class="heading">
 			<ul class="menu">
 			<li><h1>PIZZA<span>RAP</span></h1></li>
@@ -26,42 +15,126 @@
 		<div class="main-container">
 			<div class="cards">
 			  <div class="card card-1">
-				<div class="card__icon"><i class="fas fa-bolt"></i></div>
-				<p class="card__exit"><i class="fas fa-times"></i></p>
 				<h2 class="card__title">Usuarios</h2>
 				<p class="card__apply">
-				  <a class="card__link" th:href="@{/usuarios/admin/lista}">Lista de Usuarios<i class="fas fa-arrow-right"></i></a>
+				  <a class="card__link_izq" th:href="@{/usuarios/admin/lista}">Lista de Usuarios</a>
 				</p>
 			  </div>
 			  <div class="card card-2">
-				<div class="card__icon"><i class="fas fa-bolt"></i></div>
-				<p class="card__exit"><i class="fas fa-times"></i></p>
 				<h2 class="card__title">Profesionales</h2>
 				<p class="card__apply">
-				  <a class="card__link" th:href="@{/profesionales/reg_profesional}">Registrar profesional<i class="fas fa-arrow-right"></i></a> <br>
-				  <a class="card__link" th:href="@{/profesionales/lista_profesionales}">Lista de profesionales<i class="fas fa-arrow-right"></i></a> <br>
+				  <a class="card__link_der" th:href="@{/profesionales/reg_profesional}">Registrar profesional</a>
+				  <a class="card__link_izq" th:href="@{/profesionales/lista_profesionales}">Lista de profesionales</a>
 				</p>
 			  </div>
 			  <div class="card card-3">
-				<div class="card__icon"><i class="fas fa-bolt"></i></div>
-				<p class="card__exit"><i class="fas fa-times"></i></p>
 				<h2 class="card__title">Quirofanos</h2>
 				<p class="card__apply">
-				  <a class="card__link" th:href="@{/quirofanos/reg_quirofano}">Registrar quirofano<i class="fas fa-arrow-right"></i></a> <br>
-				  <a class="card__link" th:href="@{/quirofanos/lista_quirofanos}">Lista de quirofanos<i class="fas fa-arrow-right"></i></a> <br>
+				  <a class="card__link_der" th:href="@{/quirofanos/reg_quirofano}">Registrar quirofano</a>
+				  <a class="card__link_izq" th:href="@{/quirofanos/lista_quirofanos}">Lista de quirofanos</a>
 				</p>
 			  </div>
 			  <div class="card card-4">
-				<div class="card__icon"><i class="fas fa-bolt"></i></div>
-				<p class="card__exit"><i class="fas fa-times"></i></p>
 				<h2 class="card__title">Intervenciones</h2>
 				<p class="card__apply">
-				  <a class="card__link" th:href="@{/intervenciones/admin/reg_intervencion}">Registrar intervencion<i class="fas fa-arrow-right"></i></a> <br>
-				  <a class="card__link" th:href="@{/intervenciones/admin/vista_intervenciones}">Lista de intervenciones<i class="fas fa-arrow-right"></i></a> <br>
-				  <a class="card__link" th:href="@{/intervenciones/admin/matriz_intervenciones}">Matriz de intervenciones<i class="fas fa-arrow-right"></i></a> <br>
+				  <a class="card__link_der" th:href="@{/intervenciones/admin/reg_intervencion}">Registrar intervencion</a>
+				  <a class="card__link_izq" th:href="@{/intervenciones/admin/vista_intervenciones}">Lista de intervenciones</a>
+				  <a class="card__link_izq2" th:href="@{/intervenciones/admin/matriz_intervenciones}">Matriz de intervenciones</a>
 				</p>
 			  </div>
 			</div>
 		  </div>
-	</body>
+</html>
+-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Inicio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link th:href="@{../../css/inicio.css}" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+        crossorigin="anonymous">
+</head>
+
+<body>
+	<div class="heading">
+		<ul class="menu">
+		<li><h1>PIZZA<span>RAP</span></h1></li>
+		</ul>
+	</div>
+    <div class="container">
+        <div class="card">
+            <div class="face face1">
+                <div class="content">
+                    <div class="icon">
+                        <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="face face2">
+                <div class="content">
+                    <h3>
+                        <a th:href="@{/usuarios/admin/lista}">Lista de Usuarios</a>
+                    </h3>
+                </div>
+            </div>
+        </div>
+		<div class="card">
+            <div class="face face1">
+                <div class="content">
+                    <div class="icon">
+                        <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="face face2">
+                <div class="content">
+                    <h3>
+                        <a th:href="@{/profesionales/lista_profesionales}">Lista de Profesionales</a> <br>
+						<a th:href="@{/profesionales/reg_profesional}">Registrar de Profesional</a>
+                    </h3>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="face face1">
+                <div class="content">
+                    <div class="icon">
+                        <i class="fa fa-twitter-square" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="face face2">
+                <div class="content">
+                    <h3>
+                        <a th:href="@{/quirofanos/lista_quirofanos}">Lista de Quirofanos</a> <br>
+						<a th:href="@{/quirofanos/reg_quirofano}">Registrar Quirofano</a>
+                    </h3>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="face face1">
+                <div class="content">
+                    <div class="icon">
+                        <i class="fa fa-github-square" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="face face2">
+                <div class="content">
+                    <h3>
+                        <a th:href="@{/intervenciones/admin/lista_intervenciones}">Lista de Intervenciones</a> <br>
+						<a th:href="@{/intervenciones/admin/matriz_intervenciones}">Matriz de Intervenciones</a> <br>
+						<a th:href="@{/intervenciones/admin/reg_intervencion}">Registrar Intervencion</a>
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
 </html>
