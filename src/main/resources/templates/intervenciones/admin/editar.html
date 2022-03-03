@@ -7,6 +7,7 @@
     <link th:href="@{../../../css/register_style.css}" rel="stylesheet" type="text/css" media="screen"/>
     <link th:href="@{../../../css/navbar.css}" rel="stylesheet" type="text/css" media="screen"/>
     <link th:href="@{../../../css/lista.css}" rel="stylesheet" type="text/css" media="screen"/>
+    <link th:href="@{../../../css/toggle.scss}" rel="stylesheet" type="text/scss" media="screen"/>
 </head>
 
 <body>
@@ -62,11 +63,16 @@
 
         <label for="email"><b>Descripcion</b></label>
         <input type="text" th:field="*{descripcion}" placeholder="Ingrese la descripcion" name="email" id="email" required>
-
-        <label for="psw"><b>Estado</b></label>
-        <input type="checkbox" th:field="*{estado}" name="psw" id="psw">
+        
+        <label for="email"><b>Estado</b></label>
+        <div class="center">
+            <label id="estado"><b>Pendiente</b></label>
+            <input type="checkbox" id="cbx" style="display:none" th:checked="*{estado}" name="estado"/>
+            <label for="cbx" class="toggle"><span></span></label>
+            <label id="estado"><b>Realizada</b></label>
+          </div>
+        <br>
         <hr>
-
         <button type="submit" class="registerbtn">Editar</button>
     </div>
 </form>

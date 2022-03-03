@@ -58,8 +58,8 @@
 				<th>Nombre</th>
 				<th>Apellido</th>
 				<th>Email</th>
-				<th id="narrow">Eliminar</th>
         <th id="narrow">Editar</th>
+				<th id="narrow">Eliminar</th>
 			</tr>
 			</thead>
 			<tbody>
@@ -67,8 +67,8 @@
 				<td th:text="${usuario.nombre}"></td>
 				<td th:text="${usuario.apellido}"></td>
 				<td th:text="${usuario.email}"></td>
-        <td><a class="button_action" th:href="@{/usuarios/admin/borrar/{id}(id=${usuario.id})}">&#9746;</a></td>
         <td><a class="button_action" th:href="@{/usuarios/admin/editar/{id}(id=${usuario.id})}">&#9746;</a></td>
+        <td><a class="button_action" th:href="@{/usuarios/admin/borrar/{id}(id=${usuario.id})}">&#9746;</a></td>
 			</tr>
 			</tbody>
 			</table>

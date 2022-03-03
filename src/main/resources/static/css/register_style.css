@@ -1,5 +1,8 @@
-* {box-sizing: border-box}
-
+* {
+  margin: 0;
+	padding: 0;
+  box-sizing: border-box
+}
 /* Add padding to containers */
 .container {
   padding: 16px;
@@ -61,13 +64,113 @@ a {
   text-align: center;
 }
 
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-  }
-  
-  body {
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
-	  Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  }
+.center {
+  padding: 10px;
+  width: 225px;
+  border: #f1f1f1 solid 2px;
+  display: flex;
+}
+.toggle {
+  padding-left: 10px;
+  padding-right: 50px;
+  display: block;
+  width: 40px;
+  height: 20px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transform: translate3d(0, 0, 0);
+}
+.toggle:before {
+  content: "";
+  position: relative;
+  top: 3px;
+  left: 3px;
+  width: 34px;
+  height: 14px;
+  display: block;
+  background: #ff6060;
+  border-radius: 8px;
+  transition: background 0.2s ease;
+}
+.toggle span {
+  position: absolute;
+  top: 0;
+  right: 30px;
+  width: 20px;
+  height: 20px;
+  display: block;
+  background: #ce5353;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(154, 153, 153, 0.5);
+  transition: all 0.2s ease;
+}
+.toggle span:before {
+  content: "";
+  position: absolute;
+  display: block;
+  margin: -18px;
+  width: 56px;
+  height: 56px;
+  background: #04AA6D;
+  border-radius: 50%;
+  transform: scale(0);
+  opacity: 1;
+  pointer-events: none;
+}
+
+#cbx:checked + .toggle:before {
+  background: #47c798;
+}
+#cbx:checked + .toggle span {
+  background: #04AA6D;
+  transform: translateX(20px);
+  transition: all 0.2s cubic-bezier(0.8, 0.4, 0.3, 1.25), background 0.15s ease;
+  box-shadow: 0 3px 8px #04AA6D;
+}
+#cbx:checked + .toggle span:before {
+  transform: scale(1);
+  opacity: 0;
+  transition: all 0.4s ease;
+}
+
+#estado b{
+  font-weight: 400;
+}
+#datelocal{
+  float: left;
+  font-size: large;
+  text-align: center;
+}
+
+select {
+  /* Reset */
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  /* Personalize */
+  width: 20em;
+  height: 3em;
+  padding: 0 4em 0 1em;
+  background: url(https://upload.wikimedia.org/wikipedia/commons/9/9d/Caret_down_font_awesome_whitevariation.svg) no-repeat right 0.8em center/1.4em, linear-gradient(to left, rgba(172, 255, 234, 0.575) 3em, rgb(255, 255, 255) 3em);
+  color: rgb(0, 0, 0);
+  border-radius: 0;
+  cursor: pointer;
+  /* <option> colors */
+}
+select option {
+  color: inherit;
+  background-color: rgba(172, 255, 234, 0.575);
+}
+select option:hover {
+  color:yellow;
+  background-color:red;
+}
+select:focus {
+  outline: none;
+}
+select::-ms-expand {
+  display: none;
+}

@@ -61,13 +61,13 @@
         <h1>Registrar intervencion</h1>
         <hr>
 
-        <label for="email"><b>Fecha de inicio</b></label>
-        <input type="datetime-local" th:field="*{fechaHoraInicio}" name="email" id="email" required>
-        <br>
+        <label for="email"><b>Fecha de inicio</b></label><br>
+        <input id="datelocal" type="datetime-local" th:field="*{fechaHoraInicio}" style="width : 200px" required/>
+        <br><br>
 
-        <label for="psw"><b>Fecha de fin</b></label>
-        <input type="datetime-local" th:field="*{fechaHoraFin}" name="psw" id="psw" required>
-        <br>
+        <label for="email"><b>Fecha de fin</b></label><br>
+        <input id="datelocal" type="datetime-local" th:field="*{fechaHoraFin}" style="width : 200px" required/>
+        <br><br>
 
         <label for="psw-repeat"><b>Paciente</b></label>
         <input type="text" th:field="*{paciente}" placeholder="Ingrese el paciente" name="psw-repeat" id="psw-repeat" required>
@@ -76,21 +76,27 @@
         <input type="text" th:field="*{descripcion}" placeholder="Ingrese una descripcion" name="email" id="email" required>
 
         <label for="email"><b>Profesional</b></label>
+        <br>  
+        <br>
         <select name="profesional" th:field="*{profesional}">
             <option th:each="profesional:${profesionales}"
                     th:value="${profesional.id}"
                     th:text="${profesional.matricula} + ' - ' + ${profesional.apellido} + ' ' + ${profesional.nombre}" />
         </select>
         <br>
-        <br>
+        <br>     
+
 
         <label for="email"><b>Quirofano</b></label>
+        <br>  
+        <br>
+
         <select name="quirofano" th:field="*{quirofano}">
             <option th:each="quiro:${quirofanos}"
                     th:value="${quiro.id}"
                     th:text="${quiro.nombre}" />
         </select>
-
+        <br><br>
         <hr>
 
         <button type="submit" class="registerbtn">Registrar</button>
