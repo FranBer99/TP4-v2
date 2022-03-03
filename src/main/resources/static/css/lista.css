@@ -10,12 +10,19 @@ body {
 	Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
+hr {
+	border: 1px solid #f1f1f1;
+	margin-bottom: 25px;
+  }
+
 .main-container {
-	padding: 30px;
+	padding: 16px;
+	margin-left: 5%;
+	margin-right: 5%;
 }
 	  
 .button {
-	background-color: #00fecb;
+	background-color: #002921;
 	border: none;
 	color: white;
 	padding: 15px 32px;
@@ -48,7 +55,7 @@ body {
 }
 
 #lista td, #lista th {
-  border: 1px solid #ddd;
+  border: 1px solid #002921;
   padding: 8px;
 }
 #narrow{
@@ -56,6 +63,7 @@ body {
 }
 
 #lista tr:nth-child(even){background-color: #f2f2f2;}
+#lista tr:nth-child(odd){background-color: #a5e7da;}
 
 #lista tr:hover {background-color: #ddd;}
 
@@ -63,7 +71,7 @@ body {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: #00fecb;
+  background-color: #002921;
   color: white;
 }
 #accion{

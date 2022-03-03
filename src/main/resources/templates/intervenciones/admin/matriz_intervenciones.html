@@ -50,12 +50,13 @@
         <li><a class="nav_der" href="/logout">Cerrar Sesión</a></li>
     </ul>
 </div>
-<div class="row form-group">
-        <form action="#" th:action="@{/intervenciones/admin/matriz_intervenciones}" method="get">
-            <input type="date" style="width : 350px" name="fechaFiltro"/>
+    <div class="main-container">
+        <h1>Matriz de Intervenciones</h1>
+        <hr>
+        <form id="filtro" th:action="@{/intervenciones/admin/matriz_intervenciones}" method="get">
+            <input type="date" style="width : 250px" name="fechaFiltro"/>
         	<button type="submit" class="button">Filtrar</button>
     	</form>
-    <div class="main-container">
         <table id="lista">
   	  <th>Quirofano</th>
       <th>00:00hs - 04:00hs</th>
@@ -95,6 +96,5 @@
         </tbody>
         </table>
     </div>
-    <a href="/usuarios/admin/inicio" class="button">Volver al inicio</a>
 </body>
 </html>

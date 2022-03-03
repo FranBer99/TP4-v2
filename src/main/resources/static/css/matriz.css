@@ -10,11 +10,16 @@
 	  Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   }
 
-
-
-	.main-container {
-		padding: 30px;
-	  }
+  hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+    }
+  
+  .main-container {
+    padding: 16px;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
 	  
 	 .button {
   background-color: #002921;
@@ -27,7 +32,6 @@
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
-  float: left;
 }
 
   
@@ -67,4 +71,15 @@ input[type=text], input[type=password], input[type=email], input[type=date] {
 input[type=text]:focus, input[type=email]:focus, input[type=password]:focus, input[type=date]:focus {
 	background-color: #ddd;
 	outline: none;
+}
+
+#filtro{
+  margin-right: 5%;
+  float:right;
+}
+#filtro input{
+  padding: 3%;
+  font-weight: bold;
+  font-size: large;
+  text-align: center;
 }
