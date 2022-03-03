@@ -3,14 +3,53 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Lista de usuarios</title>
-		<link th:href="@{../../css/lista.css}" rel="stylesheet" type="text/css" media="screen"/>   
+		<link th:href="@{../../css/lista.css}" rel="stylesheet" type="text/css" media="screen"/>
+		<link th:href="@{../../css/navbar.css}" rel="stylesheet" type="text/css" media="screen"/>  
 	</head>
 	<body>
 		<div class="heading">
 			<ul class="menu">
-				<li><h1>PIZZA<span>RAP</span></h1></li>
+			<li><a class="pizarrap" href="/usuarios/admin/inicio"><h1>PIZZA<span>RAP</span></h1></a></li>
+            <div class="dropdown">
+                <button class="dropbtn">Usuarios
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="/usuarios/admin/lista">Lista de Usuarios</a>
+                  </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">Profesionales
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                  <a href="/profesionales/lista_profesionales">Lista de Profesionales</a>
+                  <a href="/profesionales/reg_profesional">Registrar Profesional</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">Quirofanos
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="/quirofanos/lista_quirofanos">Lista de Quirofanos</a>
+                    <a href="/quirofanos/reg_quirofano">Registrar Quirofano</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">Intervenciones
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                  <a href="/intervenciones/admin/vista_intervenciones">Lista de Intervenciones</a>
+                  <a href="/intervenciones/admin/matriz_intervenciones">Matriz de Intervenciones</a>
+                  <a href="/intervenciones/admin/reg_intervencion">Registrar Intervencion</a>
+                </div>
+            </div>
+            <li><a class="nav_der" href="/logout">Cerrar Sesión</a></li>
 			</ul>
 		</div>
+
 		<div class="main-container">
 			<table id="lista">
 			<thead>
@@ -18,8 +57,8 @@
 				<th>Nombre</th>
 				<th>Apellido</th>
 				<th>Email</th>
-				<th>Eliminar</th>
-				<th>Editar</th>
+				<th id="narrow">Editar</th>
+        <th id="narrow">Eliminar</th>
 			</tr>
 			</thead>
 			<tbody>
@@ -27,12 +66,11 @@
 				<td th:text="${usuario.nombre}"></td>
 				<td th:text="${usuario.apellido}"></td>
 				<td th:text="${usuario.email}"></td>
-				<td><a th:href="@{/usuarios/admin/borrar/{id}(id=${usuario.id})}">X</a></td>
-				<td><a th:href="@{/usuarios/admin/editar/{id}(id=${usuario.id})}">X</a></td>
+        <td><a class="button_action" th:href="@{/usuarios/admin/borrar/{id}(id=${usuario.id})}">&#9746;</a></td>
+        <td><a class="button_action" th:href="@{/usuarios/admin/editar/{id}(id=${usuario.id})}">&#9746;</a></td>
 			</tr>
 			</tbody>
 			</table>
 		 </div>
-		 <a href="/usuarios/admin/inicio" class="button">Volver al inicio</a>
 	</body>
 </html>

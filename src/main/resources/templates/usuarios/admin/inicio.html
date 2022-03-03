@@ -55,22 +55,25 @@
     <title>Inicio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link th:href="@{../../css/inicio.css}" rel="stylesheet" type="text/css" media="screen"/>
+    <link th:href="@{../../css/navbar.css}" rel="stylesheet" type="text/css" media="screen"/>
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
         crossorigin="anonymous">
 </head>
 
 <body>
 	<div class="heading">
-		<ul class="menu">
-		<li><h1>PIZZA<span>RAP</span></h1></li>
-		</ul>
-	</div>
+        <ul class="menu">
+        <li><a class="pizarrap" href="/usuarios/admin/inicio"><h1>PIZZA<span>RAP</span></h1></a></li>
+        <li><a class="nav_der" href="/logout">Cerrar Sesión</a></li>
+        </ul>
+    </div>
+
     <div class="container">
         <div class="card">
             <div class="face face1">
                 <div class="content">
                     <div class="icon">
-                        <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+                        <i><img src="../../icons/user.png" width="150"/></i>
                     </div>
                 </div>
             </div>
@@ -86,14 +89,14 @@
             <div class="face face1">
                 <div class="content">
                     <div class="icon">
-                        <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+                        <i><img src="../../icons/businessman.png" width="150"/></i>
                     </div>
                 </div>
             </div>
             <div class="face face2">
                 <div class="content">
                     <h3>
-                        <a th:href="@{/profesionales/lista_profesionales}">Lista de Profesionales</a> <br>
+                        <a th:href="@{/profesionales/lista_profesionales}">Lista de Profesionales</a> <br><br>
 						<a th:href="@{/profesionales/reg_profesional}">Registrar de Profesional</a>
                     </h3>
                 </div>
@@ -103,14 +106,14 @@
             <div class="face face1">
                 <div class="content">
                     <div class="icon">
-                        <i class="fa fa-twitter-square" aria-hidden="true"></i>
+                        <i><img src="../../icons/home.png" width="150"/></i>
                     </div>
                 </div>
             </div>
             <div class="face face2">
                 <div class="content">
                     <h3>
-                        <a th:href="@{/quirofanos/lista_quirofanos}">Lista de Quirofanos</a> <br>
+                        <a th:href="@{/quirofanos/lista_quirofanos}">Lista de Quirofanos</a> <br><br>
 						<a th:href="@{/quirofanos/reg_quirofano}">Registrar Quirofano</a>
                     </h3>
                 </div>
@@ -120,15 +123,15 @@
             <div class="face face1">
                 <div class="content">
                     <div class="icon">
-                        <i class="fa fa-github-square" aria-hidden="true"></i>
+                        <i><img src="../../icons/laser-surgery.png" width="150"/></i>
                     </div>
                 </div>
             </div>
             <div class="face face2">
                 <div class="content">
                     <h3>
-                        <a th:href="@{/intervenciones/admin/lista_intervenciones}">Lista de Intervenciones</a> <br>
-						<a th:href="@{/intervenciones/admin/matriz_intervenciones}">Matriz de Intervenciones</a> <br>
+                        <a th:href="@{/intervenciones/admin/vista_intervenciones}">Lista de Intervenciones</a> <br><br>
+						<a th:href="@{/intervenciones/admin/matriz_intervenciones}">Matriz de Intervenciones</a> <br><br>
 						<a th:href="@{/intervenciones/admin/reg_intervencion}">Registrar Intervencion</a>
                     </h3>
                 </div>

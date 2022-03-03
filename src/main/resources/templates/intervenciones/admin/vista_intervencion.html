@@ -2,8 +2,52 @@
 <html>
 <head>
 <title>Intervencion - Detalles</title>
+<link th:href="@{../../css/navbar.css}" rel="stylesheet" type="text/css" media="screen"/> 
 </head>
 <body>
+
+    <div class="heading">
+        <ul class="menu">
+        <li><a class="pizarrap" href="/usuarios/admin/inicio"><h1>PIZZA<span>RAP</span></h1></a></li>
+        <div class="dropdown">
+            <button class="dropbtn">Usuarios
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="/usuarios/admin/lista">Lista de Usuarios</a>
+              </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">Profesionales
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+              <a href="/profesionales/lista_profesionales">Lista de Profesionales</a>
+              <a href="/profesionales/reg_profesional">Registrar Profesional</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">Quirofanos
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="/quirofanos/lista_quirofanos">Lista de Quirofanos</a>
+                <a href="/quirofanos/reg_quirofano">Registrar Quirofano</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">Intervenciones
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+              <a href="/profesionales/lista_profesionales">Lista de Intervenciones</a>
+              <a href="/profesionales/lista_profesionales">Matriz de Intervenciones</a>
+              <a href="/profesionales/reg_profesional">Registrar Intervencion</a>
+            </div>
+        </div>
+        <li><a class="nav_der" href="/logout">Cerrar Sesión</a></li>
+        </ul>
+    </div>
 
 <table class="table">
         <thead class="thead-dark">
@@ -29,8 +73,8 @@
         </tbody>
     </table>
     
-    <form action="#" th:action="@{/intervenciones/admin/matriz_intervenciones}" method="get">
-        <button type="submit" class="btn btn-primary r">Volver a la lista</button>
+    <form th:action="@{/intervenciones/admin/matriz_intervenciones}" method="get">
+        <button type="submit" class="btn btn-primary r">Volver</button>
     </form>
 
 </body>
