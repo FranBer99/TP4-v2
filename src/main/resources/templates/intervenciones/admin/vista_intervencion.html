@@ -1,13 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-<title>Intervencion - Detalles</title>
-<link th:href="@{../../css/navbar.css}" rel="stylesheet" type="text/css" media="screen"/> 
+    <meta charset="UTF-8">
+    <title>Lista de intervenciones</title>
+    <link th:href="@{../../../css/navbar.css}" rel="stylesheet" type="text/css" media="screen"/>
+    <link th:href="@{../../../css/lista.css}" rel="stylesheet" type="text/css" media="screen"/>
 </head>
-<body>
 
-    <div class="heading">
-        <ul class="menu">
+<body>
+<div class="heading">
+    <ul class="menu">
         <li><a class="pizarrap" href="/usuarios/admin/inicio"><h1>PIZZA<span>RAP</span></h1></a></li>
         <div class="dropdown">
             <button class="dropbtn">Usuarios
@@ -15,15 +17,15 @@
             </button>
             <div class="dropdown-content">
                 <a href="/usuarios/admin/lista">Lista de Usuarios</a>
-              </div>
+            </div>
         </div>
         <div class="dropdown">
             <button class="dropbtn">Profesionales
-              <i class="fa fa-caret-down"></i>
+                <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
-              <a href="/profesionales/lista_profesionales">Lista de Profesionales</a>
-              <a href="/profesionales/reg_profesional">Registrar Profesional</a>
+                <a href="/profesionales/lista_profesionales">Lista de Profesionales</a>
+                <a href="/profesionales/reg_profesional">Registrar Profesional</a>
             </div>
         </div>
         <div class="dropdown">
@@ -37,27 +39,28 @@
         </div>
         <div class="dropdown">
             <button class="dropbtn">Intervenciones
-              <i class="fa fa-caret-down"></i>
+                <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
-              <a href="/profesionales/lista_profesionales">Lista de Intervenciones</a>
-              <a href="/profesionales/lista_profesionales">Matriz de Intervenciones</a>
-              <a href="/profesionales/reg_profesional">Registrar Intervencion</a>
+                <a href="/intervenciones/admin/vista_intervenciones">Lista de Intervenciones</a>
+                <a href="/intervenciones/admin/matriz_intervenciones">Matriz de Intervenciones</a>
+                <a href="/intervenciones/admin/reg_intervencion">Registrar Intervencion</a>
             </div>
         </div>
         <li><a class="nav_der" href="/logout">Cerrar Sesión</a></li>
-        </ul>
-    </div>
-
-<table class="table">
-        <thead class="thead-dark">
+    </ul>
+</div>
+<div class="main-container">
+    <table id="lista">
+        <thead>
         <tr>
-            <th scope="col">Fecha de inicio</th>
-            <th scope="col">Fecha de fin</th>
-            <th scope="col">Paciente</th>
-            <th scope="col">Profesional</th>
-            <th scope="col">Quirofano</th>
-            <th scope="col">Descripcion</th>
+            <th >Fecha de inicio</th>
+            <th >Fecha de fin</th>
+            <th >Paciente</th>
+            <th >Profesional</th>
+            <th >Quirofano</th>
+            <th >Descripcion</th>
+            <th >Estado</th>
         </tr>
         </thead>
         <tbody>
@@ -68,14 +71,13 @@
             <td th:text="${intervencion.profesional.matricula} + ' - ' + ${intervencion.profesional.apellido} + ' ' + ${intervencion.profesional.nombre}"></td>
             <td th:text="${intervencion.quirofano.nombre}"></td>
             <td th:text="${intervencion.descripcion}"></td>
-            <td th:text="${intervencion.estado}"></td>
+            <td th:if="${intervencion.estado == true}">Realizada</td>
+            <td th:unless="${intervencion.estado == true}">Pendiente</td>
         </tr>
         </tbody>
     </table>
-    
-    <form th:action="@{/intervenciones/admin/matriz_intervenciones}" method="get">
-        <button type="submit" class="btn btn-primary r">Volver</button>
-    </form>
-
+</div>
+<a href="/intervenciones/admin/matriz_intervenciones" class="button">ver la matriz de intervenciones</a>
+<a href="/usuarios/admin/inicio" class="button">Volver al inicio</a>
 </body>
 </html>

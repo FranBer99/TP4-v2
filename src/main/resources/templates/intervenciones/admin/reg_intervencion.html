@@ -1,14 +1,16 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Pizarra - Registrar Intervencion</title>
+    <title>
+        Registrar intervencion
+    </title>
+    <link th:href="@{../../../css/register_style.css}" rel="stylesheet" type="text/css" media="screen"/>
     <link th:href="@{../../../css/navbar.css}" rel="stylesheet" type="text/css" media="screen"/>
-    <link th:href="@{../../css/register_style.css}" rel="stylesheet" type="text/css" media="screen"/>
 </head>
+
 <body>
-    <div class="heading">
-        <ul class="menu">
+<div class="heading">
+    <ul class="menu">
         <li><a class="pizarrap" href="/usuarios/admin/inicio"><h1>PIZZA<span>RAP</span></h1></a></li>
         <div class="dropdown">
             <button class="dropbtn">Usuarios
@@ -16,15 +18,15 @@
             </button>
             <div class="dropdown-content">
                 <a href="/usuarios/admin/lista">Lista de Usuarios</a>
-              </div>
+            </div>
         </div>
         <div class="dropdown">
             <button class="dropbtn">Profesionales
-              <i class="fa fa-caret-down"></i>
+                <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
-              <a href="/profesionales/lista_profesionales">Lista de Profesionales</a>
-              <a href="/profesionales/reg_profesional">Registrar Profesional</a>
+                <a href="/profesionales/lista_profesionales">Lista de Profesionales</a>
+                <a href="/profesionales/reg_profesional">Registrar Profesional</a>
             </div>
         </div>
         <div class="dropdown">
@@ -38,53 +40,62 @@
         </div>
         <div class="dropdown">
             <button class="dropbtn">Intervenciones
-              <i class="fa fa-caret-down"></i>
+                <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
-              <a href="/profesionales/lista_profesionales">Lista de Intervenciones</a>
-              <a href="/profesionales/lista_profesionales">Matriz de Intervenciones</a>
-              <a href="/profesionales/reg_profesional">Registrar Intervencion</a>
+                <a href="/intervenciones/admin/vista_intervenciones">Lista de Intervenciones</a>
+                <a href="/intervenciones/admin/matriz_intervenciones">Matriz de Intervenciones</a>
+                <a href="/intervenciones/admin/reg_intervencion">Registrar Intervencion</a>
             </div>
         </div>
         <li><a class="nav_der" href="/logout">Cerrar Sesión</a></li>
-        </ul>
-    </div>
+    </ul>
+</div>
+
 <div th:if="${error != null}" class="alert alert-danger" role="alert">
     <span class="d-block" th:text="${error}"></span>
 </div>
-    <form th:action="@{/intervenciones/admin/reg_intervencion/}" th:object="${intervencion}" method="post" role="form">
-        <div class="container">
-            <h1>Registrar quirofano</h1>
-            <hr>
-    
-            <label><b>Fecha Inicio</b></label>
-            <input type="datetime-local" th:field="*{fechaHoraInicio}" required/>
-            <label><b>Fecha Fin</b></label>
-            <input type="datetime-local" th:field="*{fechaHoraFin}" required/>
-            <br>
-            <label><b>Paciente</b></label>
-            <input type="text" th:field="*{paciente}" placeholder="Ingrese nombre del paciente" required/>
-            <label><b>Descripcion</b></label>
-            <input type="text" th:field="*{descripcion}" placeholder="Ingrese descripcion" required/>
-            <label><b>Quirofano</b></label>
-            <div class="dropdown-r" >
-                <select name="quirofano" th:field="*{quirofano}">
-                    <option th:each="quiro:${quirofanos}" 
-                            th:value="${quiro.id}"
-                            th:text="${quiro.nombre}">
-                </select>
-            </div>
-            <label><b>Profesional</b></label>
-            <div class="row form-group">
-                <select name="profesional" th:field="*{profesional}">
-                    <option th:each="profesional:${profesionales}" 
-                            th:value="${profesional.id}"
-                            th:text="${profesional.matricula} + ' - ' + ${profesional.apellido} + ' ' + ${profesional.nombre}">
-                </select>
-            </div>
-            
-            <button type="submit" class="registerbtn">Registrar</button>
-        </div>
-    </form>
+
+<form th:action="@{/intervenciones/admin/reg_intervencion/}" th:object="${intervencion}" method="post" role="form">
+    <div class="container">
+        <h1>Registrar intervencion</h1>
+        <hr>
+
+        <label for="email"><b>Fecha de inicio</b></label>
+        <input type="datetime-local" th:field="*{fechaHoraInicio}" name="email" id="email" required>
+        <br>
+
+        <label for="psw"><b>Fecha de fin</b></label>
+        <input type="datetime-local" th:field="*{fechaHoraFin}" name="psw" id="psw" required>
+        <br>
+
+        <label for="psw-repeat"><b>Paciente</b></label>
+        <input type="text" th:field="*{paciente}" placeholder="Ingrese el paciente" name="psw-repeat" id="psw-repeat" required>
+
+        <label for="email"><b>Descripcion</b></label>
+        <input type="text" th:field="*{descripcion}" placeholder="Ingrese una descripcion" name="email" id="email" required>
+
+        <label for="email"><b>Profesional</b></label>
+        <select name="profesional" th:field="*{profesional}">
+            <option th:each="profesional:${profesionales}"
+                    th:value="${profesional.id}"
+                    th:text="${profesional.matricula} + ' - ' + ${profesional.apellido} + ' ' + ${profesional.nombre}" />
+        </select>
+        <br>
+        <br>
+
+        <label for="email"><b>Quirofano</b></label>
+        <select name="quirofano" th:field="*{quirofano}">
+            <option th:each="quiro:${quirofanos}"
+                    th:value="${quiro.id}"
+                    th:text="${quiro.nombre}" />
+        </select>
+
+        <hr>
+
+        <button type="submit" class="registerbtn">Registrar</button>
+    </div>
+</form>
+
 </body>
 </html>
