@@ -41,7 +41,6 @@ public class UsuarioController {
         }catch (Exception e){
             redirectAttributes.addFlashAttribute("error",e.getMessage());
         }
-
         return "redirect:/usuarios/admin/lista";
     }
 

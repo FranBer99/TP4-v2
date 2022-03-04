@@ -67,6 +67,7 @@ public class UsuarioServiceImpl implements UsuarioService{
         if(usuario.getId().equals(id)){
             throw new Exception("Un usuario no se puede borrar a si mismo");
         }
+        
         usuarioRepository.deleteById(id);
     }
 

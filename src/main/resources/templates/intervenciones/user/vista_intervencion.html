@@ -1,19 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-<title>Intervencion - Detalles</title>
+    <meta charset="UTF-8">
+    <title>Lista de intervenciones</title>
+    <link th:href="@{../../../css/navbar.css}" rel="stylesheet" type="text/css" media="screen"/>
+    <link th:href="@{../../../css/lista.css}" rel="stylesheet" type="text/css" media="screen"/>
 </head>
-<body>
 
-<table class="table">
-        <thead class="thead-dark">
+<body>
+<div class="heading">
+    <ul class="menu">
+        <li><a class="pizarrap" href="/usuarios/user/inicio"><h1>PIZZA<span>RAP</span></h1></a></li>
+        <div class="dropdown">
+            <button class="dropbtn">Intervenciones
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="/intervenciones/user/vista_intervenciones">Lista de Intervenciones</a>
+                <a href="/intervenciones/user/matriz_intervenciones">Matriz de Intervenciones</a>
+            </div>
+        </div>
+        <li><a class="nav_der" href="/logout">Cerrar Sesión</a></li>
+    </ul>
+</div>
+<div class="main-container">
+    <h1>Informacion de la Intervencion</h1><hr>
+    <table id="lista">
+        <thead>
         <tr>
-            <th scope="col">Fecha de inicio</th>
-            <th scope="col">Fecha de fin</th>
-            <th scope="col">Paciente</th>
-            <th scope="col">Profesional</th>
-            <th scope="col">Quirofano</th>
-            <th scope="col">Descripcion</th>
+            <th >Fecha de inicio</th>
+            <th >Fecha de fin</th>
+            <th >Paciente</th>
+            <th >Profesional</th>
+            <th >Quirofano</th>
+            <th >Descripcion</th>
+            <th >Estado</th>
         </tr>
         </thead>
         <tbody>
@@ -24,14 +45,14 @@
             <td th:text="${intervencion.profesional.matricula} + ' - ' + ${intervencion.profesional.apellido} + ' ' + ${intervencion.profesional.nombre}"></td>
             <td th:text="${intervencion.quirofano.nombre}"></td>
             <td th:text="${intervencion.descripcion}"></td>
-            <td th:text="${intervencion.estado}"></td>
+            <td th:if="${intervencion.estado == true}">Realizada</td>
+            <td th:unless="${intervencion.estado == true}">Pendiente</td>
         </tr>
         </tbody>
     </table>
-    
-    <form action="#" th:action="@{/intervenciones/user/matriz_intervenciones}" method="get">
-        <button type="submit" class="btn btn-primary r">Volver a la lista</button>
+    <form id="volver" th:action="@{/intervenciones/user/matriz_intervenciones}" method="get">
+        <button type="submit" class="button">Volver</button>
     </form>
-
+</div>
 </body>
 </html>

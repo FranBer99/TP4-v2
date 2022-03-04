@@ -2,64 +2,75 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-  }
-  
-  body {
+}
+
+body {
+	background-color: #c0c0c0; 
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
-	  Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+hr {
+	border: 1px solid #f1f1f1;
+	margin-bottom: 25px;
   }
 
-	.menu{
-		list-style: none;
-		padding: 0;
-		background: #002921;
-		width: 100%;
-		max-width: 100%;
-		margin: 0;
-	}
-
-	.heading h1 {
-		padding-left: 10px;
-		text-align: left;
-		color: #fff;
-		text-transform: uppercase;
-		font-size: 50px;
-	}
-	.heading h1 span {
-		color: #00fecb;
-	}
-
-	.main-container {
-		padding: 30px;
-	  }
+.main-container {
+	padding: 16px;
+	margin-left: 5%;
+	margin-right: 5%;
+}
 	  
-	 .button {
-  background-color: #00fecb;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-  float: left;
+.button {
+	background-color: #002921;
+	border: none;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	font-weight: bold;
+	margin: 4px 2px;
+	cursor: pointer;
+}
+.alerta_error{
+	text-align: center;
+}
+.alerta_error a{
+	font-weight: bold;
+	color: rgb(253, 61, 61);
+}
+.button_action {
+	background-color: #00fecb;
+	border: none;
+	color: #002921;
+	padding-right: 20px;
+	padding-left: 20px;
+	text-align: right;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 24px;
+	cursor: pointer;
 }
 
   
-  #lista {
-  font-family: Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
+#lista {
+	font-family: Arial, Helvetica, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
 }
 
 #lista td, #lista th {
-  border: 1px solid #ddd;
+  border: 1px solid #002921;
   padding: 8px;
+}
+#narrow{
+	width: 0%;
 }
 
 #lista tr:nth-child(even){background-color: #f2f2f2;}
+#lista tr:nth-child(odd){background-color: #a5e7da;}
 
 #lista tr:hover {background-color: #ddd;}
 
@@ -67,6 +78,22 @@
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: #00fecb;
+  background-color: #002921;
   color: white;
 }
+#accion{
+	color: transparent;
+}
+
+#volver {
+	background-color: #002921;
+	float: right;
+	border: none;
+	color: white;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 6px 2px;
+	cursor: pointer;
+  }
