@@ -7,6 +7,7 @@
 </head>
 <body>
 	<div class="contact-form">
+		<div th:if="${error}" class="alerta_error"><a th:text="${error}"></a></div><br>
 		<form th:action="@{/auth/registro}" th:object="${usuario}" method="post">
 			<p>Nombre</p><input th:field="*{nombre}" placeholder="Ingrese nombre" type="text" required>
 			<p>Apellido</p><input th:field="*{apellido}" placeholder="Ingrese apellido" type="text">

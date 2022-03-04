@@ -56,6 +56,8 @@
         <h1>Registrar Profesional</h1>
         <hr>
 
+        <div th:if="${error}" class="alerta_error"><a th:text="${error}"></a></div><br>
+
         <label for="email"><b>Nombre</b></label>
         <input type="text" th:field="*{nombre}" placeholder="Ingrese su nombre" name="email" id="email" required>
 

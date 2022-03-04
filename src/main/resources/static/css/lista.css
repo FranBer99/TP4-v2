@@ -34,6 +34,13 @@ hr {
 	margin: 4px 2px;
 	cursor: pointer;
 }
+.alerta_error{
+	text-align: center;
+}
+.alerta_error a{
+	font-weight: bold;
+	color: rgb(253, 61, 61);
+}
 .button_action {
 	background-color: #00fecb;
 	border: none;

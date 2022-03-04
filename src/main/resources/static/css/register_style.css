@@ -64,6 +64,14 @@ a {
   text-align: center;
 }
 
+.alerta_error{
+	text-align: center;
+}
+.alerta_error a{
+  font-weight: bold;
+	color: rgb(253, 61, 61);
+}
+
 .center {
   padding: 10px;
   width: 225px;

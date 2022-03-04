@@ -34,15 +34,11 @@ public class LoginController {
 
     @PostMapping("/auth/registro")
     public String registro(@ModelAttribute Usuario usuario, BindingResult result, Model model, RedirectAttributes redirectAttributes){
-        if(result.hasErrors()){
+        try{
+            model.addAttribute("usuario", usuarioService.registrar(usuario));
+        }catch(Exception e){
+            redirectAttributes.addFlashAttribute("error",e.getMessage());
             return "redirect:/auth/registro";
-        }else{
-            try{
-                model.addAttribute("usuario", usuarioService.registrar(usuario));
-            }catch(Exception e){
-                redirectAttributes.addFlashAttribute("error",e.getMessage());
-                return "redirect:/auth/registro";
-            }
         }
         return "redirect:/auth/login";
     }

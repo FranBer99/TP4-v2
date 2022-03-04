@@ -10,10 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class InicioController {
 
-    protected Optional<String> getPreviousPageByRequest(HttpServletRequest request) {
-        return Optional.ofNullable(request.getHeader("Referer")).map(requestUrl -> "redirect:" + requestUrl);
-    }
-
     @GetMapping("/")
     public String inicio(){
         return "inicio";
@@ -21,7 +17,7 @@ public class InicioController {
     
     @GetMapping("/logout")
     public String logout(){
-        return "/logout";
+        return "inicio";
     }
 
     @GetMapping("/error")

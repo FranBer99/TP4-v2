@@ -22,7 +22,7 @@ public class Usuario implements UserDetails {
     @Column(name = "email", nullable = false, unique = true)
     private String email;
     private String password;
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "usuario_roles",
             joinColumns = @JoinColumn(name = "usuario_id"),

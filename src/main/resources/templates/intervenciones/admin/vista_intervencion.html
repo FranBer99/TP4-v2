@@ -62,6 +62,8 @@
             <th >Quirofano</th>
             <th >Descripcion</th>
             <th >Estado</th>
+            <th id="narrow">Editar</th>
+            <th id="narrow">Eliminar</th>
         </tr>
         </thead>
         <tbody>
@@ -74,6 +76,8 @@
             <td th:text="${intervencion.descripcion}"></td>
             <td th:if="${intervencion.estado == true}">Realizada</td>
             <td th:unless="${intervencion.estado == true}">Pendiente</td>
+            <td><a class="button_action" th:href="@{/intervenciones/admin/editar/{id}(id=${intervencion.id})}">&#9746;</a></td>
+            <td><a class="button_action" th:href="@{/intervenciones/admin/borrar/{id}(id=${intervencion.id})}">&#9746;</a></td>
         </tr>
         </tbody>
     </table>

@@ -89,7 +89,7 @@
             <td th:unless="${mquirofano.rango4 != null}"><a id="vacio">ㅤ</a></td>
             
             <td th:if="${mquirofano.rango5 != null and mquirofano.rango5.estado == false}"><a id="pendiente" th:href="@{/intervenciones/admin/vista_intervencion/{id}(id=${mquirofano.rango5.id})}">ㅤ</a></td>
-            <td th:if="${mquirofano.rango5 != null and mquirofano.rango5.estado == true}"><a id="realizada" th:href="@{/intervenciones/admin/vista_intervencion/{id}(id=${mquirofano.rango5.id})}"><ㅤ/a></td>
+            <td th:if="${mquirofano.rango5 != null and mquirofano.rango5.estado == true}"><a id="realizada" th:href="@{/intervenciones/admin/vista_intervencion/{id}(id=${mquirofano.rango5.id})}">ㅤ</a></td>
             <td th:unless="${mquirofano.rango5 != null}"><a id="vacio">ㅤ</a></td>
         </tr>
         </tbody>

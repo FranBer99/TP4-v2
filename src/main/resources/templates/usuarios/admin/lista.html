@@ -52,6 +52,7 @@
 
 		<div class="main-container">
       <h1>Lista de Usuarios</h1><hr>
+      <div th:if="${error}" class="alerta_error"><a th:text="${error}"></a></div><br>
 			<table id="lista">
 			<thead>
 			<tr>
