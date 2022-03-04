@@ -77,3 +77,16 @@ hr {
 #accion{
 	color: transparent;
 }
+
+#volver {
+	background-color: #002921;
+	float: right;
+	border: none;
+	color: white;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 6px 2px;
+	cursor: pointer;
+  }

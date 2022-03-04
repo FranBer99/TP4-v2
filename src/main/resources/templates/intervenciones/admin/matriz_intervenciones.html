@@ -49,49 +49,48 @@
         </div>
         <li><a class="nav_der" href="/logout">Cerrar Sesión</a></li>
     </ul>
-</div>
+</div>  
     <div class="main-container">
         <h1>Matriz de Intervenciones</h1>
         <hr>
         <form id="filtro" th:action="@{/intervenciones/admin/matriz_intervenciones}" method="get">
-            <input type="date" style="width : 250px" name="fechaFiltro"/>
+            <input type="date" style="width : 250px" name="fechaFiltro" />
         	<button type="submit" class="button">Filtrar</button>
     	</form>
         <table id="lista">
-  	  <th>Quirofano</th>
+  	  <th id="quirofano">Quirofano</th>
       <th>00:00hs - 04:00hs</th>
       <th>04:00hs - 08:00hs</th>
       <th>08:00hs - 12:00hs</th>
       <th>12:00hs - 16:00hs</th>
       <th>16:00hs - 20:00hs</th>
       <th>20:00hs - 24:00hs</th>
-    </tr>
     <tr th:each="mquirofano : ${mquirofanos}">
-            <td th:text="${mquirofano.quirofano.nombre}"></td>
+            <td id="quirofano" th:text="${mquirofano.quirofano.nombre}"></td>
             
-            <td th:if="${mquirofano.rango0 != null and mquirofano.rango0.estado == false}" style="background-color:rgb(255, 81, 81)"><a th:href="@{/intervenciones/admin/vista_intervencion/{id}(id=${mquirofano.rango0.id})}">Ver</a></td>
-            <td th:if="${mquirofano.rango0 != null and mquirofano.rango0.estado == true}" style="background-color:rgb(128, 255, 128)"><a th:href="@{/intervenciones/admin/vista_intervencion/{id}(id=${mquirofano.rango0.id})}">Ver</a></td>
-            <td th:unless="${mquirofano.rango0 != null}" style="background-color:rgb(231,231,231)"></td>
+            <td th:if="${mquirofano.rango0 != null and mquirofano.rango0.estado == false}"><a id="pendiente" th:href="@{/intervenciones/admin/vista_intervencion/{id}(id=${mquirofano.rango0.id})}">ㅤ</a></td>
+            <td th:if="${mquirofano.rango0 != null and mquirofano.rango0.estado == true}"><a id="realizada" th:href="@{/intervenciones/admin/vista_intervencion/{id}(id=${mquirofano.rango0.id})}">ㅤ</a></td>
+            <td th:unless="${mquirofano.rango0 != null}"><a id="vacio">ㅤ</a></td>
             
-            <td th:if="${mquirofano.rango1 != null and mquirofano.rango1.estado == false}" style="background-color:rgb(255, 81, 81)"><a th:href="@{/intervenciones/admin/vista_intervencion/{id}(id=${mquirofano.rango1.id})}">Ver</a></td>
-            <td th:if="${mquirofano.rango1 != null and mquirofano.rango1.estado == true}" style="background-color:rgb(128, 255, 128)"><a th:href="@{/intervenciones/admin/vista_intervencion/{id}(id=${mquirofano.rango1.id})}">Ver</a></td>
-            <td th:unless="${mquirofano.rango1 != null}" style="background-color:rgb(231,231,231)"></td>
+            <td th:if="${mquirofano.rango1 != null and mquirofano.rango1.estado == false}"><a id="pendiente" th:href="@{/intervenciones/admin/vista_intervencion/{id}(id=${mquirofano.rango1.id})}">ㅤ</a></td>
+            <td th:if="${mquirofano.rango1 != null and mquirofano.rango1.estado == true}"><a id="realizada" th:href="@{/intervenciones/admin/vista_intervencion/{id}(id=${mquirofano.rango1.id})}">ㅤ</a></td>
+            <td th:unless="${mquirofano.rango1 != null}"><a id="vacio">ㅤ</a></td>
             
-            <td th:if="${mquirofano.rango2 != null and mquirofano.rango2.estado == false}" style="background-color:rgb(255, 81, 81)"><a th:href="@{/intervenciones/admin/vista_intervencion/{id}(id=${mquirofano.rango2.id})}">Ver</a></td>
-            <td th:if="${mquirofano.rango2 != null and mquirofano.rango2.estado == true}" style="background-color:rgb(128, 255, 128)"><a th:href="@{/intervenciones/admin/vista_intervencion/{id}(id=${mquirofano.rango2.id})}">Ver</a></td>
-            <td th:unless="${mquirofano.rango2 != null}" style="background-color:rgb(231,231,231)"></td>
+            <td th:if="${mquirofano.rango2 != null and mquirofano.rango2.estado == false}"><a id="pendiente" th:href="@{/intervenciones/admin/vista_intervencion/{id}(id=${mquirofano.rango2.id})}">ㅤ</a></td>
+            <td th:if="${mquirofano.rango2 != null and mquirofano.rango2.estado == true}"><a id="realizada" th:href="@{/intervenciones/admin/vista_intervencion/{id}(id=${mquirofano.rango2.id})}">ㅤ</a></td>
+            <td th:unless="${mquirofano.rango2 != null}"><a id="vacio">ㅤ</a></td>
             
-            <td th:if="${mquirofano.rango3 != null and mquirofano.rango3.estado == false}" style="background-color:rgb(255, 81, 81)"><a th:href="@{/intervenciones/admin/vista_intervencion/{id}(id=${mquirofano.rango3.id})}">Ver</a></td>
-            <td th:if="${mquirofano.rango3 != null and mquirofano.rango3.estado == true}" style="background-color:rgb(128, 255, 128)"><a th:href="@{/intervenciones/admin/vista_intervencion/{id}(id=${mquirofano.rango3.id})}">Ver</a></td>
-            <td th:unless="${mquirofano.rango3 != null}" style="background-color:rgb(231,231,231)"></td>
+            <td th:if="${mquirofano.rango3 != null and mquirofano.rango3.estado == false}"><a id="pendiente" th:href="@{/intervenciones/admin/vista_intervencion/{id}(id=${mquirofano.rango3.id})}">ㅤ</a></td>
+            <td th:if="${mquirofano.rango3 != null and mquirofano.rango3.estado == true}"><a id="realizada" th:href="@{/intervenciones/admin/vista_intervencion/{id}(id=${mquirofano.rango3.id})}">ㅤ</a></td>
+            <td th:unless="${mquirofano.rango3 != null}"><a id="vacio">ㅤ</a></td>
             
-            <td th:if="${mquirofano.rango4 != null and mquirofano.rango4.estado == false}" style="background-color:rgb(255, 81, 81)"><a th:href="@{/intervenciones/admin/vista_intervencion/{id}(id=${mquirofano.rango4.id})}">Ver</a></td>
-            <td th:if="${mquirofano.rango4 != null and mquirofano.rango4.estado == true}" style="background-color:rgb(128, 255, 128)"><a th:href="@{/intervenciones/admin/vista_intervencion/{id}(id=${mquirofano.rango4.id})}">Ver</a></td>
-            <td th:unless="${mquirofano.rango4 != null}" style="background-color:rgb(231,231,231)"></td>
+            <td th:if="${mquirofano.rango4 != null and mquirofano.rango4.estado == false}"><a id="pendiente" th:href="@{/intervenciones/admin/vista_intervencion/{id}(id=${mquirofano.rango4.id})}">ㅤ</a></td>
+            <td th:if="${mquirofano.rango4 != null and mquirofano.rango4.estado == true}"><a id="realizada" th:href="@{/intervenciones/admin/vista_intervencion/{id}(id=${mquirofano.rango4.id})}">ㅤ</a></td>
+            <td th:unless="${mquirofano.rango4 != null}"><a id="vacio">ㅤ</a></td>
             
-            <td th:if="${mquirofano.rango5 != null and mquirofano.rango5.estado == false}" style="background-color:rgb(255, 81, 81)"><a th:href="@{/intervenciones/admin/vista_intervencion/{id}(id=${mquirofano.rango5.id})}">Ver</a></td>
-            <td th:if="${mquirofano.rango5 != null and mquirofano.rango5.estado == true}" style="background-color:rgb(128, 255, 128)"><a th:href="@{/intervenciones/admin/vista_intervencion/{id}(id=${mquirofano.rango5.id})}">Ver</a></td>
-            <td th:unless="${mquirofano.rango5 != null}" style="background-color:rgb(231,231,231)"></td>
+            <td th:if="${mquirofano.rango5 != null and mquirofano.rango5.estado == false}"><a id="pendiente" th:href="@{/intervenciones/admin/vista_intervencion/{id}(id=${mquirofano.rango5.id})}">ㅤ</a></td>
+            <td th:if="${mquirofano.rango5 != null and mquirofano.rango5.estado == true}"><a id="realizada" th:href="@{/intervenciones/admin/vista_intervencion/{id}(id=${mquirofano.rango5.id})}"><ㅤ/a></td>
+            <td th:unless="${mquirofano.rango5 != null}"><a id="vacio">ㅤ</a></td>
         </tr>
         </tbody>
         </table>

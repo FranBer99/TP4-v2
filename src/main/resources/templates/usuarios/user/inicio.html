@@ -1,15 +1,44 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<title>Menu de inicio</title>
-		<link th:href="@{../../css/inicio.css}" rel="stylesheet" type="text/css" media="screen"/>   
-	</head>
-	<body>
-		<ul class="menu">
-			<li><a th:href="@{/intervenciones/user/vista_intervenciones}">Lista de intervenciones</a></li>
-			<li><a th:href="@{/intervenciones/user/matriz_intervenciones}">Matriz de intervenciones</a></li>
-			<li class="menu_logout"><a th:href="@{/logout}">Cerrar Sesión</a></li>
-		</ul>
-	</body>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Inicio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link th:href="@{../../css/inicio.css}" rel="stylesheet" type="text/css" media="screen"/>
+    <link th:href="@{../../css/navbar.css}" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+        crossorigin="anonymous">
+</head>
+
+<body>
+	<div class="heading">
+        <ul class="menu">
+        <li><a class="pizarrap" href="/usuarios/user/inicio"><h1>PIZZA<span>RAP</span></h1></a></li>
+        <li><a class="nav_der" href="/logout">Cerrar Sesión</a></li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <div class="card">
+            <div class="face face1">
+                <div class="content">
+                    <div class="icon">
+                        <i><img src="../../icons/laser-surgery.png" width="150"/></i>
+                    </div>
+                </div>
+            </div>
+            <div class="face face2">
+                <div class="content">
+                    <h3>
+                        <a th:href="@{/intervenciones/user/vista_intervenciones}">Lista de Intervenciones</a> <br><br>
+						<a th:href="@{/intervenciones/user/matriz_intervenciones}">Matriz de Intervenciones</a> <br><br>
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
 </html>
