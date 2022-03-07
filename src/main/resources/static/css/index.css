@@ -4,18 +4,18 @@
 }
 body {
 	font-family: 'Poppins', sans-serif;
-}
-.wrapper {
-	width: 1170px;
-	margin: auto;
-}
-header {
 	background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(https://www.lavanguardia.com/files/og_thumbnail/uploads/2021/11/15/619252570ebcf.jpeg);
 	height: 100vh;
 	-webkit-background-size: cover;
 	background-size: cover;
 	background-position: center center;
-	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.wrapper {
+	width: 1170px;
+	margin: auto;
 }
 .nav-area {
 	float: right;
@@ -45,9 +45,7 @@ header {
 	padding: 15px 0;
 }
 .welcome-text {
-	position: absolute;
-	margin-top: 15%;
-	margin-left: 33.3%;
+	position: relative;
 	width: 600px;
 	height: 300px;
 	text-align: center;
